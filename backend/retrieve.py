@@ -7,10 +7,11 @@ def extract_entities(text: str) -> set:
     caps = set(re.findall(r'\b[A-Z][a-z]+\b', text))
     return numbers.union(dates).union(caps)
 
-def retrieve(claim_text: str, chunks: list, k: int = 4) -> list:
+def retrieve(claim_text: str, chunks: list, k: int = 6) -> list:
     if not chunks:
         return []
     
+    k = min(k, len(chunks))
     tokenized_corpus = [chunk["text"].lower().split() for chunk in chunks]
     bm25 = BM25Okapi(tokenized_corpus)
     tokenized_query = claim_text.lower().split()

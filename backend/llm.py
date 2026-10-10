@@ -6,7 +6,7 @@ from google import genai
 from google.genai import types
 from google.genai.errors import APIError
 
-load_dotenv()
+load_dotenv("backend/.env")
 
 GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-3.8-flash")
 
