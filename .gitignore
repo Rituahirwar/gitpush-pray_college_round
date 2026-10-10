@@ -11,3 +11,4 @@ dist/
 build/
 .pytest_cache/
 .llm_cache/
+demo/inputs/large/

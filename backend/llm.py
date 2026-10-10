@@ -2,6 +2,7 @@ import os
 import json
 import time
 import hashlib
+import re
 from pathlib import Path
 from dotenv import load_dotenv
 from google import genai
@@ -100,6 +101,10 @@ def call_json(system_prompt: str, user_content: str, schema: dict = None) -> dic
             if code_int == 429 or (500 <= code_int < 600) or "429" in err_str or "500" in err_str or "502" in err_str or "503" in err_str or "timeout" in err_str or "resource_exhausted" in err_str:
                 if attempt == max_tries - 1:
                     raise
-                time.sleep(2 ** attempt)
+                wait_sec = float(2 ** attempt)
+                match = re.search(r'retry in (\d+(?:\.\d+)?)s', err_str)
+                if match:
+                    wait_sec = max(wait_sec, float(match.group(1)) + 1.0)
+                time.sleep(wait_sec)
             else:
                 raise

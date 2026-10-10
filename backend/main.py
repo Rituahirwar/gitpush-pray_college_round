@@ -34,7 +34,7 @@ ROOT_DIR = Path(__file__).resolve().parent.parent
 
 @app.get("/api/demo/{id}")
 def get_demo(id: str):
-    for base in [Path("."), ROOT_DIR]:
+    for base in [ROOT_DIR, Path(".")]:
         cache_path = base / f"demo/cache/{id}.json"
         if cache_path.exists():
             with open(cache_path, "r", encoding="utf-8") as f:
@@ -43,7 +43,7 @@ def get_demo(id: str):
 
 @app.get("/api/benchmark")
 def get_benchmark():
-    for base in [Path("."), ROOT_DIR]:
+    for base in [ROOT_DIR, Path(".")]:
         eval_path = base / "eval/results.json"
         if eval_path.exists():
             with open(eval_path, "r", encoding="utf-8") as f:

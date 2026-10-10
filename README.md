@@ -26,6 +26,11 @@ GEMINI_MODEL=gemini-3.5-flash-lite
 uvicorn backend.main:app --port 8000
 ```
 
+### Evaluation Datasets
+The evaluation framework uses:
+- Fr. CRCE admissions document: `demo/inputs/fr-crce-info.pdf` (committed in repository)
+- WMO State of the Global Climate 2025: download the official PDF from [wmo.int](https://wmo.int) and place it at `demo/inputs/large/wmo-state-of-global-climate-2025.pdf` (gitignored).
+
 ## How it works
 *(TBD)*
 
