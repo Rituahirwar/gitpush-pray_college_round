@@ -1,14 +1,22 @@
 import os
 import json
 import time
+import hashlib
+from pathlib import Path
 from dotenv import load_dotenv
 from google import genai
 from google.genai import types
 from google.genai.errors import APIError
 
 load_dotenv("backend/.env")
+load_dotenv(".env")
 
-GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-3.8-flash")
+CACHE_DIR = Path(".llm_cache")
+
+def compute_cache_key(model: str, system_prompt: str, user_content: str, schema: dict = None) -> str:
+    schema_str = json.dumps(schema, sort_keys=True) if schema is not None else ""
+    payload = f"{model}:{system_prompt}:{user_content}:{schema_str}"
+    return hashlib.sha256(payload.encode("utf-8")).hexdigest()
 
 def strip_code_fences(text: str) -> str:
     text = text.strip()
@@ -24,13 +32,30 @@ def call_json(system_prompt: str, user_content: str, schema: dict = None) -> dic
     api_key = os.getenv("GEMINI_API_KEY")
     if not api_key:
         raise ValueError("GEMINI_API_KEY is missing. Set it in backend/.env")
-        
+
+    model = os.getenv("GEMINI_MODEL")
+    if not model:
+        raise ValueError("GEMINI_MODEL is missing. Set it in backend/.env")
+
+    use_cache = os.getenv("LLM_CACHE") == "1"
+    cache_file = None
+    if use_cache:
+        CACHE_DIR.mkdir(parents=True, exist_ok=True)
+        cache_key = compute_cache_key(model, system_prompt, user_content, schema)
+        cache_file = CACHE_DIR / f"{cache_key}.json"
+        if cache_file.exists():
+            try:
+                with open(cache_file, "r", encoding="utf-8") as f:
+                    return json.load(f)
+            except Exception:
+                pass
+
     client = genai.Client(api_key=api_key)
 
     config_kwargs = {
         "system_instruction": system_prompt,
         "response_mime_type": "application/json",
-        "http_options": {"timeout": 60000} # google-genai timeout is in ms for http_options or wait, it might be timeout parameter
+        "http_options": {"timeout": 60000}
     }
     if schema:
         config_kwargs["response_schema"] = schema
@@ -41,16 +66,24 @@ def call_json(system_prompt: str, user_content: str, schema: dict = None) -> dic
     for attempt in range(max_tries):
         try:
             response = client.models.generate_content(
-                model=GEMINI_MODEL,
+                model=model,
                 contents=user_content,
                 config=config
             )
             raw_text = response.text
             clean_text = strip_code_fences(raw_text)
             try:
-                return json.loads(clean_text)
+                result = json.loads(clean_text)
             except json.JSONDecodeError as e:
                 raise ValueError(f"Invalid JSON returned by the model: {clean_text}") from e
+                
+            if use_cache and cache_file is not None:
+                try:
+                    with open(cache_file, "w", encoding="utf-8") as f:
+                        json.dump(result, f, indent=2)
+                except Exception:
+                    pass
+            return result
                 
         except Exception as e:
             err_str = str(e).lower()
@@ -60,7 +93,11 @@ def call_json(system_prompt: str, user_content: str, schema: dict = None) -> dic
             except (ValueError, TypeError):
                 code_int = 0
             
-            if code_int == 429 or (500 <= code_int < 600) or "429" in err_str or "500" in err_str or "502" in err_str or "503" in err_str or "timeout" in err_str:
+            is_daily_limit = ("per day" in err_str or "per-day" in err_str or "daily" in err_str or "per_day" in err_str)
+            if (code_int == 429 or "429" in err_str or "resource_exhausted" in err_str) and is_daily_limit:
+                raise RuntimeError(f"Daily quota exhausted for model '{model}': {e}") from e
+
+            if code_int == 429 or (500 <= code_int < 600) or "429" in err_str or "500" in err_str or "502" in err_str or "503" in err_str or "timeout" in err_str or "resource_exhausted" in err_str:
                 if attempt == max_tries - 1:
                     raise
                 time.sleep(2 ** attempt)

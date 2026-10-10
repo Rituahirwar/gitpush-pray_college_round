@@ -14,7 +14,15 @@ def compute_confidence(claim_dict: dict) -> str:
         
     if label in ["unsupported", "ambiguous"]:
         return "medium"
+
+    if label == "contradicted":
+        # For contradicted claims, ignore numbers_match because a number mismatch
+        # is the very evidence for the contradiction.
+        if quote_found:
+            return "high"
+        return "medium"
         
+    # For supported claims, require both quote_found and numbers_match
     if quote_found and numbers_match:
         return "high"
         

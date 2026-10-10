@@ -1,5 +1,11 @@
 import json
 import os
+import sys
+from pathlib import Path
+
+# Ensure project root is in sys.path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
 from fastapi import FastAPI, UploadFile, File, Form, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from backend.ingest import ingest
@@ -24,20 +30,24 @@ app.add_middleware(
 def health():
     return {"ok": True}
 
+ROOT_DIR = Path(__file__).resolve().parent.parent
+
 @app.get("/api/demo/{id}")
 def get_demo(id: str):
-    cache_path = f"demo/cache/{id}.json"
-    if os.path.exists(cache_path):
-        with open(cache_path, "r") as f:
-            return json.load(f)
+    for base in [Path("."), ROOT_DIR]:
+        cache_path = base / f"demo/cache/{id}.json"
+        if cache_path.exists():
+            with open(cache_path, "r", encoding="utf-8") as f:
+                return json.load(f)
     raise HTTPException(status_code=404, detail="Demo not found")
 
 @app.get("/api/benchmark")
 def get_benchmark():
-    eval_path = "eval/results.json"
-    if os.path.exists(eval_path):
-        with open(eval_path, "r") as f:
-            return json.load(f)
+    for base in [Path("."), ROOT_DIR]:
+        eval_path = base / "eval/results.json"
+        if eval_path.exists():
+            with open(eval_path, "r", encoding="utf-8") as f:
+                return json.load(f)
     return {}
 
 @app.post("/api/audit")

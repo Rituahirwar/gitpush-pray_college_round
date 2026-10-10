@@ -136,6 +136,28 @@ def test_compute_confidence():
     c4 = {"label": "unsupported", "checks": {"passes_agree": True, "quote_found": False, "numbers_match": True}}
     assert compute_confidence(c4) == "medium"
 
+    # contradicted + wrong number + agreeing passes + quote found => high
+    c_contradicted = {
+        "label": "contradicted",
+        "checks": {"passes_agree": True, "quote_found": True, "numbers_match": False}
+    }
+    assert compute_confidence(c_contradicted) == "high"
+
+    # supported + number missing from quote => not high
+    c_supported_no_number = {
+        "label": "supported",
+        "checks": {"passes_agree": True, "quote_found": True, "numbers_match": False}
+    }
+    assert compute_confidence(c_supported_no_number) != "high"
+    assert compute_confidence(c_supported_no_number) == "medium"
+
+    # contradicted with passes disagree => low
+    c_disagree = {
+        "label": "contradicted",
+        "checks": {"passes_agree": False, "quote_found": True, "numbers_match": False}
+    }
+    assert compute_confidence(c_disagree) == "low"
+
 # --- Reasoning Tests ---
 @patch('backend.reasoning.call_json')
 def test_extract_reasoning_issues(mock_call):

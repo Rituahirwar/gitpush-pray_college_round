@@ -1,0 +1,218 @@
+{
+  "doc": {
+    "name": "fr-crce-info.pdf",
+    "pages": 2
+  },
+  "answer": "Fr. Conceicao Rodrigues College of Engineering is an autonomous college affiliated to the University of Mumbai. It was established in 1990. The college holds an NAAC 'A+' grade. The Computer Engineering programme has an intake of 180 students. For 2026-27, the fee for the Open category is \u20b92,50,000. OBC students pay \u20b928,043 at reporting. The college is one of the best engineering institutes in India. The library is open 24x7 for physical borrowing. Since almost all eligible students are placed, every single student who joins is guaranteed a job. If you are struggling with finances, you can skip paying the fee instalment and pay later without penalty.\n",
+  "overall": {
+    "counts": {
+      "supported": 2,
+      "contradicted": 3,
+      "unsupported": 1,
+      "ambiguous": 1
+    },
+    "needs_review": 1,
+    "assessment": "7 claims checked: 2 supported, 3 contradicted, 1 unsupported, 1 ambiguous. 1 needs review. 2 reasoning issue(s) found."
+  },
+  "claims": [
+    {
+      "id": "1",
+      "text": "Fr. Conceicao Rodrigues College of Engineering is an autonomous college affiliated to the University of Mumbai.",
+      "span": {
+        "start": 0,
+        "end": 111
+      },
+      "label": "supported",
+      "error_type": "none",
+      "confidence": "high",
+      "needs_review": false,
+      "evidence": [
+        {
+          "page": 1,
+          "chunk_id": "p1c1",
+          "quote": "Fr. Conceicao Rodrigues College of Engineering (Fr. CRCE) is an autonomous engineering college affiliated to the University of Mumbai",
+          "verified": true
+        }
+      ],
+      "explanation": "The text explicitly states that the college is an autonomous engineering college affiliated to the University of Mumbai.",
+      "checks": {
+        "quote_found": true,
+        "numbers_match": true,
+        "passes_agree": true
+      }
+    },
+    {
+      "id": "2",
+      "text": "It was established in 1990.",
+      "span": {
+        "start": 112,
+        "end": 139
+      },
+      "label": "contradicted",
+      "error_type": "hallucinated_fact",
+      "confidence": "high",
+      "needs_review": false,
+      "evidence": [
+        {
+          "page": 1,
+          "chunk_id": "p1c1",
+          "quote": "It was established in 1984 as part of the Agnel Technical Complex",
+          "verified": true
+        }
+      ],
+      "explanation": "The text states the college was established in 1984, contradicting the claim that it was established in 1990.",
+      "checks": {
+        "quote_found": true,
+        "numbers_match": false,
+        "passes_agree": true
+      }
+    },
+    {
+      "id": "3",
+      "text": "The college holds an NAAC 'A+' grade.",
+      "span": {
+        "start": 140,
+        "end": 177
+      },
+      "label": "contradicted",
+      "error_type": "hallucinated_fact",
+      "confidence": "high",
+      "needs_review": false,
+      "evidence": [
+        {
+          "page": 1,
+          "chunk_id": "p1c1",
+          "quote": "Accreditation and ranking: NAAC \u2018A\u2019 grade.",
+          "verified": true
+        }
+      ],
+      "explanation": "The text indicates the college holds an NAAC 'A' grade, not an 'A+' grade.",
+      "checks": {
+        "quote_found": true,
+        "numbers_match": true,
+        "passes_agree": true
+      }
+    },
+    {
+      "id": "4",
+      "text": "The Computer Engineering programme has an intake of 180 students.",
+      "span": {
+        "start": 178,
+        "end": 243
+      },
+      "label": "supported",
+      "error_type": "none",
+      "confidence": "high",
+      "needs_review": false,
+      "evidence": [
+        {
+          "page": 1,
+          "chunk_id": "p1c1",
+          "quote": "B.Tech Computer Engineering 180",
+          "verified": true
+        }
+      ],
+      "explanation": "The table of courses offered shows an intake of 180 for B.Tech Computer Engineering.",
+      "checks": {
+        "quote_found": true,
+        "numbers_match": true,
+        "passes_agree": true
+      }
+    },
+    {
+      "id": "5",
+      "text": "For 2026-27, the fee for the Open category is \u20b92,50,000.",
+      "span": {
+        "start": 244,
+        "end": 300
+      },
+      "label": "contradicted",
+      "error_type": "hallucinated_fact",
+      "confidence": "high",
+      "needs_review": false,
+      "evidence": [
+        {
+          "page": 1,
+          "chunk_id": "p1c3",
+          "quote": "Open \u20b92,15,000",
+          "verified": true
+        }
+      ],
+      "explanation": "The text states the Open category fee at reporting is \u20b92,15,000, not \u20b92,50,000.",
+      "checks": {
+        "quote_found": true,
+        "numbers_match": false,
+        "passes_agree": true
+      }
+    },
+    {
+      "id": "6",
+      "text": "OBC students pay \u20b928,043 at reporting.",
+      "span": {
+        "start": 301,
+        "end": 339
+      },
+      "label": "ambiguous",
+      "error_type": "unsupported_claim",
+      "confidence": "medium",
+      "needs_review": false,
+      "evidence": [
+        {
+          "page": 1,
+          "chunk_id": "p1c3",
+          "quote": "OBC (Male) \u20b91,21,522 OBC (Female) \u20b928,043",
+          "verified": true
+        }
+      ],
+      "explanation": "The fee for OBC students depends on gender (Male is \u20b91,21,522 and Female is \u20b928,043), making the general claim that OBC students pay \u20b928,043 ambiguous/incomplete.",
+      "checks": {
+        "quote_found": true,
+        "numbers_match": true,
+        "passes_agree": true
+      }
+    },
+    {
+      "id": "7",
+      "text": "The library is open 24x7 for physical borrowing.",
+      "span": {
+        "start": 404,
+        "end": 452
+      },
+      "label": "unsupported",
+      "error_type": "unsupported_claim",
+      "confidence": "low",
+      "needs_review": true,
+      "evidence": [],
+      "explanation": "The text mentions a '24x7 online catalogue search', but does not state that the library is open 24x7 for physical borrowing.",
+      "checks": {
+        "quote_found": false,
+        "numbers_match": true,
+        "passes_agree": false
+      }
+    }
+  ],
+  "issues": [
+    {
+      "id": "lg_1",
+      "type": "logic_gap",
+      "text": "Since almost all eligible students are placed, every single student who joins is guaranteed a job.",
+      "explanation": "High placement rates for eligible students do not logically guarantee a job for every single student who joins the college.",
+      "related_claims": [],
+      "span": {
+        "start": 453,
+        "end": 551
+      }
+    },
+    {
+      "id": "ua_1",
+      "type": "unsafe_advice",
+      "text": "If you are struggling with finances, you can skip paying the fee instalment and pay later without penalty.",
+      "explanation": "The source text does not support the recommendation or policy that students can skip fee instalments without penalty.",
+      "related_claims": [],
+      "span": {
+        "start": 552,
+        "end": 658
+      }
+    }
+  ]
+}
