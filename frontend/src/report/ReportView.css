@@ -1,0 +1,371 @@
+.report-page {
+  min-height: calc(100vh - 54px);
+  padding: 40px 32px 80px;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.report-container {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Header */
+.report-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 20px;
+}
+
+.report-title {
+  font-size: 38px;
+  line-height: 44px;
+  font-weight: 400;
+  color: var(--text-bright);
+  margin: 0 0 6px 0;
+}
+
+.report-meta {
+  font-size: 11px;
+  color: var(--text-dim);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.meta-sep {
+  color: var(--line);
+}
+
+.report-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-action {
+  font-size: 12px;
+  padding: 7px 16px;
+}
+
+.btn-print {
+  background-color: var(--text-bright);
+  color: #0B0B0C;
+}
+
+/* Counts Row */
+.report-counts-bar {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 14px 20px;
+  background-color: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  font-size: 12px;
+  overflow-x: auto;
+}
+
+.counts-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.count-symbol {
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.count-label {
+  color: var(--text-dim);
+  font-size: 11px;
+}
+
+.count-value {
+  color: var(--text-bright);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.counts-flag .count-label {
+  color: var(--dot-unsupported);
+}
+
+.counts-flag .count-value {
+  color: var(--dot-unsupported);
+}
+
+/* Table Section */
+.report-table-section {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background-color: var(--panel);
+  overflow: hidden;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.report-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.report-table th {
+  padding: 12px 16px;
+  background-color: var(--panel-2);
+  border-bottom: 1px solid var(--line);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.report-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--text);
+}
+
+.report-table tr:last-child td {
+  border-bottom: none;
+}
+
+.report-table tr:hover td {
+  background-color: rgba(255, 255, 255, 0.015);
+}
+
+.col-num {
+  width: 40px;
+  color: var(--text-dim);
+  font-weight: 600;
+}
+
+.col-claim {
+  max-width: 420px;
+}
+
+.claim-text {
+  font-size: 15px;
+  line-height: 22px;
+  color: var(--text-bright);
+  display: block;
+}
+
+.claim-explanation {
+  font-size: 12px;
+  color: var(--text-dim);
+  display: block;
+  margin-top: 4px;
+  line-height: 18px;
+}
+
+.col-verdict {
+  width: 150px;
+}
+
+.col-conf {
+  width: 100px;
+}
+
+.conf-badge {
+  font-size: 11px;
+  color: var(--text-dim);
+  letter-spacing: 0.06em;
+}
+
+.col-evidence {
+  max-width: 320px;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.quote-text {
+  color: var(--text-bright);
+}
+
+.col-page {
+  width: 60px;
+  color: var(--text-dim);
+  font-size: 12px;
+}
+
+/* Issues Section */
+.report-issues-section {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background-color: var(--panel);
+  padding: 20px;
+}
+
+.issues-title {
+  margin: 0 0 16px 0;
+  display: block;
+}
+
+.issues-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.report-issue-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px;
+  background-color: var(--panel-2);
+}
+
+.issue-card-top {
+  margin-bottom: 8px;
+}
+
+.issue-card-quote {
+  font-size: 14px;
+  color: var(--text-bright);
+  margin: 0 0 6px 0;
+  font-style: italic;
+}
+
+.issue-card-exp {
+  font-size: 12px;
+  color: var(--text-dim);
+  margin: 0;
+  line-height: 18px;
+}
+
+/* Footer */
+.report-footer {
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+  text-align: center;
+}
+
+.footer-note {
+  font-size: 11px;
+  color: var(--text-dim);
+  letter-spacing: 0.04em;
+  margin: 0;
+  line-height: 18px;
+}
+
+/* Empty Page */
+.report-empty-page {
+  min-height: calc(100vh - 54px);
+  padding: 80px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg);
+}
+
+.report-empty-box {
+  max-width: 480px;
+  width: 100%;
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+  background-color: var(--panel);
+  padding: 40px 32px;
+  text-align: center;
+}
+
+.report-empty-title {
+  font-size: 28px;
+  color: var(--text-bright);
+  margin: 12px 0 8px 0;
+}
+
+.report-empty-desc {
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 22px;
+  margin: 0 0 24px 0;
+}
+
+.empty-actions-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* ========================================================= */
+/* Print Stylesheet per FRONTEND_SPEC.md                      */
+/* White background, black text, navbar and buttons hidden    */
+/* ========================================================= */
+@media print {
+  body,
+  .report-page,
+  .report-container {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  .no-print,
+  .navbar {
+    display: none !important;
+  }
+
+  .report-container {
+    max-width: 100% !important;
+    padding: 0 !important;
+    gap: 16px !important;
+  }
+
+  .report-title,
+  .issues-title,
+  .claim-text,
+  .issue-card-quote,
+  .count-value,
+  .quote-text {
+    color: #000000 !important;
+  }
+
+  .report-counts-bar,
+  .report-table-section,
+  .report-issue-card,
+  .report-issues-section {
+    background-color: #ffffff !important;
+    border: 1px solid #000000 !important;
+  }
+
+  .report-table th {
+    background-color: #f2f2f2 !important;
+    color: #000000 !important;
+    border-bottom: 2px solid #000000 !important;
+  }
+
+  .report-table td {
+    border-bottom: 1px solid #cccccc !important;
+    color: #000000 !important;
+  }
+
+  .report-meta,
+  .claim-explanation,
+  .issue-card-exp,
+  .count-label,
+  .col-page,
+  .conf-badge,
+  .footer-note {
+    color: #333333 !important;
+  }
+
+  @page {
+    margin: 1.5cm;
+    size: portrait;
+  }
+}
