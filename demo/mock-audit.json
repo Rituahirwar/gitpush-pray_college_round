@@ -1,0 +1,18 @@
+{
+  "doc": { "name": "fee-policy.pdf", "pages": 4 },
+  "answer": "The registration fee is Rs 8,000. Registration closes on 10 December. Late applicants may be allowed with permission. The college guarantees a full refund within 7 days. Therefore, students can skip the orientation.",
+  "overall": {
+    "counts": { "supported": 1, "contradicted": 1, "unsupported": 1, "ambiguous": 1 },
+    "needs_review": 1,
+    "assessment": "4 claims checked: 1 supported, 1 contradicted, 1 unsupported, 1 ambiguous. 1 needs review. 1 reasoning issue found."
+  },
+  "claims": [
+    { "id": "c1", "text": "The registration fee is Rs 8,000.", "span": { "start": 0, "end": 33 }, "label": "contradicted", "error_type": "hallucinated_fact", "confidence": "high", "needs_review": false, "evidence": [ { "page": 2, "chunk_id": "p2c1", "quote": "The registration fee is Rs 5,000 for all students.", "verified": true } ], "explanation": "The document gives a fee of Rs 5,000, not Rs 8,000.", "checks": { "quote_found": true, "numbers_match": false, "passes_agree": true }, "diagnosis": "contradicted_by_source" },
+    { "id": "c2", "text": "Registration closes on 10 December.", "span": { "start": 34, "end": 69 }, "label": "supported", "error_type": "none", "confidence": "high", "needs_review": false, "evidence": [ { "page": 2, "chunk_id": "p2c2", "quote": "Registration closes on 10 December.", "verified": true } ], "explanation": "The document states this date directly.", "checks": { "quote_found": true, "numbers_match": true, "passes_agree": true }, "diagnosis": "verified" },
+    { "id": "c3", "text": "Late applicants may be allowed with permission.", "span": { "start": 70, "end": 117 }, "label": "ambiguous", "error_type": "none", "confidence": "low", "needs_review": true, "evidence": [ { "page": 3, "chunk_id": "p3c1", "quote": "Late applications are considered at the discretion of the committee.", "verified": true } ], "explanation": "The document allows discretion but does not say permission is required, so the claim is open to interpretation.", "checks": { "quote_found": true, "numbers_match": true, "passes_agree": false }, "diagnosis": "source_vague" },
+    { "id": "c4", "text": "The college guarantees a full refund within 7 days.", "span": { "start": 118, "end": 169 }, "label": "unsupported", "error_type": "unsupported_claim", "confidence": "medium", "needs_review": false, "evidence": [], "explanation": "No passage in the document mentions refunds, so this cannot be verified from the source.", "checks": { "quote_found": false, "numbers_match": false, "passes_agree": true }, "diagnosis": "source_silent" }
+  ],
+  "issues": [
+    { "id": "i1", "type": "logic_gap", "span": { "start": 170, "end": 215 }, "text": "Therefore, students can skip the orientation.", "explanation": "Nothing in the supported claims says orientation is optional, so this conclusion does not follow.", "related_claims": ["c4"] }
+  ]
+}
