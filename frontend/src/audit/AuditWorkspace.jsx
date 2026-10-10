@@ -353,20 +353,52 @@ const claimRowRefs = useRef({})
   useEffect(() => {
     let cancelled = false
 
-    fetch('http://localhost:8000/api/demo/fr-crce-v2')
-      .then((response) => {
-        if (!response.ok) throw new Error(`Could not load mock audit (${response.status}).`)
-        return response.json()
-      })
-      .then((result) => {
+    const loadData = async () => {
+      // 1. Try backend final demo endpoint
+      try {
+        const response = await fetch('http://localhost:8000/api/demo/fr-crce-final')
+        if (response.ok) {
+          const result = await response.json()
+          if (!cancelled) {
+            setData(result)
+            setSelectedClaimId(result.claims?.[0]?.id ?? null)
+          }
+          return
+        }
+      } catch {
+        // Backend not running; proceed to fallback
+      }
+
+      // 2. Try static public demo cache
+      try {
+        const fallbackRes = await fetch('/fr-crce-final.json')
+        if (fallbackRes.ok) {
+          const result = await fallbackRes.json()
+          if (!cancelled) {
+            setData(result)
+            setSelectedClaimId(result.claims?.[0]?.id ?? null)
+          }
+          return
+        }
+      } catch {
+        // Proceed to mock-audit
+      }
+
+      // 3. Try /mock-audit.json
+      try {
+        const mockRes = await fetch('/mock-audit.json')
+        if (!mockRes.ok) throw new Error(`Could not load mock audit (${mockRes.status}).`)
+        const result = await mockRes.json()
         if (!cancelled) {
           setData(result)
           setSelectedClaimId(result.claims?.[0]?.id ?? null)
         }
-      })
-      .catch((error) => {
+      } catch (error) {
         if (!cancelled) setLoadError(error.message || 'Could not load the mock audit.')
-      })
+      }
+    }
+
+    loadData()
 
     return () => {
       cancelled = true
