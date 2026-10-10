@@ -1,0 +1,58 @@
+:root {
+  /* Core Color Palette - Section 5 */
+  --bg: #0B0B0C;
+  --panel: #161618;
+  --panel-2: #1D1D20;
+  --line: #2A2A2E;
+  --text: #D6D6D8;
+  --text-dim: #8A8A8F;
+  --text-bright: #F2F2F3;
+
+  /* Muted verdict dot indicators */
+  --dot-supported: #6FA88B;
+  --dot-contradicted: #C46B6B;
+  --dot-unsupported: #C9A55C;
+  --dot-ambiguous: #7C93B0;
+
+  /* Typography */
+  --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Radii */
+  --radius: 2px;
+  --radius-chip: 999px;
+
+  /* Focus Ring */
+  --focus-ring: 1px solid #F2F2F3;
+  --focus-offset: 2px;
+}
+
+/* Base resets & typography helpers */
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.mono-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.mono-chip {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}

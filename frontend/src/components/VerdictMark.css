@@ -1,0 +1,130 @@
+/* Verdict Inline Mark Buttons */
+.verdict-mark-btn {
+  display: inline;
+  background: transparent;
+  border: none;
+  padding: 0 1px;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  cursor: pointer;
+  border-radius: var(--radius);
+  transition: outline 80ms ease, background-color 80ms ease;
+  position: relative;
+}
+
+.verdict-mark-btn:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
+
+.verdict-mark-btn.is-selected {
+  outline: 1px solid var(--text-bright);
+  outline-offset: 2px;
+}
+
+/* 1. supported: soft light-grey fill behind the words */
+.mark-supported {
+  background-color: rgba(214, 214, 216, 0.14);
+}
+
+/* 2. contradicted: inverted block (near-white background, black text) */
+.mark-contradicted {
+  background-color: #ECECED;
+  color: #0B0B0C !important;
+  padding: 1px 3px;
+  font-weight: 500;
+}
+
+.mark-contradicted .mark-index {
+  color: #0B0B0C !important;
+}
+
+/* 3. unsupported: dashed underline */
+.mark-unsupported {
+  text-decoration: underline dashed rgba(214, 214, 216, 0.65) 1.5px;
+  text-underline-offset: 4px;
+}
+
+/* 4. ambiguous: wavy underline */
+.mark-ambiguous {
+  text-decoration: underline wavy rgba(124, 147, 176, 0.75) 1.5px;
+  text-underline-offset: 4px;
+}
+
+/* 5. logic_gap: double underline and small mono tag LOGIC GAP */
+.mark-logic-gap {
+  text-decoration: underline double var(--text-bright) 1.5px;
+  text-underline-offset: 4px;
+}
+
+/* 6. unsafe_advice: dotted outline box and small mono tag UNSAFE */
+.mark-unsafe {
+  border: 1px dotted var(--dot-contradicted);
+  padding: 1px 3px;
+  background-color: rgba(196, 107, 107, 0.08);
+}
+
+/* Tags & Indicators */
+.mark-tag {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  color: var(--text-bright);
+  padding: 1px 4px;
+  margin-left: 6px;
+  border-radius: var(--radius);
+  vertical-align: middle;
+}
+
+.review-flag {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  background: rgba(201, 165, 92, 0.15);
+  border: 1px solid var(--dot-unsupported);
+  color: var(--dot-unsupported);
+  padding: 0 4px;
+  margin-left: 4px;
+  border-radius: var(--radius);
+  vertical-align: middle;
+}
+
+.mark-index {
+  font-size: 10px;
+  color: var(--text-dim);
+  margin-left: 2px;
+  font-weight: 500;
+}
+
+/* Badge Mode */
+.verdict-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-bright);
+}
+
+.verdict-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.verdict-symbol {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.verdict-label {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
