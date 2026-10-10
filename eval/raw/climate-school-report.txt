@@ -1,0 +1,51 @@
+Climate Science | School Report
+
+State of the Global Climate 2025
+
+A school report on the World Meteorological Organization’s annual climate assessment
+
+What is this report?
+
+The State of the Global Climate is an annual flagship report of the World Meteorological Organization (WMO). It updates key observed climate indicators and presents selected high-impact weather and climate events from the year. It is produced by WMO together with National Meteorological and Hydrological Services, international data centres, climate research institutions and United Nations partners. The 2025 edition adds a new indicator, Earth’s energy imbalance, and includes a case study on climate and heat impacts on health. The report does not provide climate projections or forecasts, and it does not prescribe policy actions.
+
+Greenhouse gases
+
+Carbon dioxide, methane and nitrous oxide all reached record observed levels in 2024, the latest year for which consolidated global figures are available. Carbon dioxide (CO ) reached 423.9 ± 0.2 parts
+
+2
+
+per million (ppm), which is 6.2 ppm more than in 2023 and 152% of the pre-industrial level (estimated
+
+for the year 1750). The 2024 increase was the largest annual rise since modern measurements began in 1957. Methane reached 1,942 parts per billion (ppb), or 266% of the pre-industrial level, and nitrous oxide reached 338.0 ppb, or 125%. CO2 is higher than at any time in at least 2 million years, while methane and nitrous oxide are higher than at any time in at least 800,000 years. Real-time data from individual stations show that all three gases continued to rise in 2025.
+
+Temperature
+
+The global mean near-surface temperature in 2025 was 1.43 °C (± 0.13 °C) above the 1850–1900 average, based on a synthesis of nine datasets. Depending on the dataset, 2025 was the second (two datasets) or third (seven datasets) warmest year in the 176-year record. The warmest year remains 2024, at 1.55 °C above the 1850–1900 average. The years 2015–2025 were the eleven warmest on record, and 2023–2025 were the three warmest in all nine datasets.
+
+2025 was slightly cooler than 2024 because a strong El Niño at the start of 2024 gave way to weak La Niña conditions in 2025. Even so, January 2025 was the warmest January on record, and 2025 was the warmest year without El Niño conditions on record. The report also notes that one year above 1.5 °C, such as 2024, does not mean the 1.5 °C warming level in the Paris Agreement has been exceeded, because that goal refers to changes over decades and not to individual years.
+
+Oceans
+
+About 91% of the extra energy trapped by greenhouse gases goes into the ocean, 5% into the continents, 3% into melting ice and 1% into the atmosphere. Ocean heat content in the upper 2,000 metres reached a record high in 2025, the highest in the 66-year observational record, and each of the past nine years has set a new record. The rate of ocean warming from 2005 to 2025 was more than twice the rate from 1960 to 2005. Around 90% of the ocean surface experienced at least one marine heatwave in 2025.
+
+Ice and sea level
+
+In a global set of reference glaciers, six of the ten most negative annual mass balances since 1950 have occurred since 2016. The Greenland ice sheet lost about 270 billion tonnes of ice in 2025. In 2025 Arctic sea ice had its lowest annual maximum on record, peaking at 14.19 million km2 on 20 or 21 March. The Antarctic sea-ice minimum of 2.06 million km2 tied for the second lowest on record, and the past four years have seen the four lowest Antarctic minima. At the end of 2025, global mean sea level was around 11 cm higher than in January 1993, when satellite records began. Sea level rose at an average of 2.65 mm per year from 1993 to 2011 and at 4.75 mm per year from 2012 to 2025.
+
+Earth’s energy imbalance (new indicator)
+
+Earth’s energy imbalance is the difference between the energy the Earth receives from the Sun and the energy it radiates back to space. In 2025 it reached the highest value since the observational record began in 1960. Estimated from ocean heat content, its rate of increase was 0.13 watts per square metre per decade over 1960–2025, but 0.30 over 2001–2025. This means the heat stored on Earth is not only increasing but accelerating.
+
+Extreme events and health
+
+Selected events from 2025 include the Texas floods on 4–5 July (235 deaths), the California wildfires in January (over 30 deaths and estimated losses above US$ 60 billion), and Hurricane Melissa, which made landfall in western Jamaica on 28 October with maximum sustained winds of 298 km/h, the most intense landfall on record. Japan recorded its highest temperature on record, 41.8 °C at Isesaki on 5 August. Monsoon flooding caused over 1,000 deaths in Pakistan and destroyed about 2 million
+
+homes.
+
+In the health case study, the World Health Organization estimates that about half of the world’s population is at risk of dengue, with 100–400 million infections each year, and reported cases are currently the highest ever recorded. Over one third of the global workforce, about 1.2 billion people, is exposed to workplace heat risk at some point each year.
+
+Conclusion
+
+Greenhouse gas concentrations, ocean heat content, sea level and Earth’s energy imbalance all reached or stayed near record levels, while glaciers and sea ice continued to lose ice. 2025 was not the warmest year, but it was among the three warmest, and 2023, 2024 and 2025 are the three warmest years on record. Many figures in the report refer to 2024 because consolidated global greenhouse gas figures for 2025 are not yet available.
+
+Source: World Meteorological Organization (WMO), State of the Global Climate 2025, Geneva, 2026. This report is a student summary of that publication.

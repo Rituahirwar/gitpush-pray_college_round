@@ -28,7 +28,9 @@ def extract_claims(answer: str) -> list:
     system_prompt = (
         "Split an AI-generated answer into atomic factual claims. One checkable fact per claim. "
         "Keep original wording. For each claim copy the exact words from the answer into the field quote. "
-        "Do not add or infer anything. Skip opinions and greetings. "
+        "Do not add or infer anything. "
+        "A conclusion (so, therefore, since X then Y) and a recommendation (you can, you should, you could) each contain a checkable assertion: extract that assertion as its own claim. "
+        "Skip only pure opinion with no checkable content, and greetings. Each claim must be a full sentence that stands alone. "
         "Return JSON only: a list of objects with id and quote."
     )
     schema = {
