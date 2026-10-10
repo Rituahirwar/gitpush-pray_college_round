@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { AuditProvider } from './context/AuditContext'
 import Navbar from './components/Navbar'
-import NewAudit from './pages/NewAudit'
+import UploadHero from './upload/UploadHero'
 import AuditWorkspace from './audit/AuditWorkspace'
 import Report from './pages/Report'
 import Benchmark from './pages/Benchmark'
@@ -33,7 +33,7 @@ export default function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<Navigate to="/audit" replace />} />
-            <Route path="/audit" element={<NewAudit />} />
+            <Route path="/audit" element={<UploadHero />} />
             <Route path="/audit/result" element={<AuditWorkspace />} />
             <Route path="/report" element={<Report />} />
             <Route path="/benchmark" element={<Benchmark />} />
