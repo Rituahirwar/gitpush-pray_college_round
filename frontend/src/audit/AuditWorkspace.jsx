@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import {
   Activity,
   AlertTriangle,
@@ -347,6 +347,8 @@ export default function AuditWorkspace() {
   const [selectedIssueId, setSelectedIssueId] = useState(null)
   const [filter, setFilter] = useState('all')
   const [search, setSearch] = useState('')
+  // Stores references to claim buttons so keyboard navigation can focus them.
+const claimRowRefs = useRef({})
 
   useEffect(() => {
     let cancelled = false
@@ -386,6 +388,94 @@ export default function AuditWorkspace() {
     })
   }, [data, filter, search])
 
+  // Keyboard navigation: ↑ / ↓ moves between visible claims,
+// Enter selects a claim, and Escape closes the current issue.
+useEffect(() => {
+  function handleKeyboardNavigation(event) {
+    const target = event.target
+
+    // Never intercept keys while the user is typing or using a form control.
+    if (
+      target instanceof HTMLElement &&
+      (
+        target.isContentEditable ||
+        target.matches('input, textarea, select')
+      )
+    ) {
+      return
+    }
+
+    // Let unrelated buttons keep their normal keyboard behavior.
+    if (
+      target instanceof HTMLElement &&
+      target.closest('button') &&
+      !target.closest('.claim-row, .text-claim, .text-issue')
+    ) {
+      if (event.key !== 'Escape') return
+    }
+
+    if (event.key === 'Escape') {
+      if (selectedIssueId) {
+        event.preventDefault()
+        setSelectedIssueId(null)
+      }
+      return
+    }
+
+    if (!filteredClaims.length) return
+
+    const currentIndex = filteredClaims.findIndex(
+      (claim) => claim.id === selectedClaimId
+    )
+
+    if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+      event.preventDefault()
+
+      const startingIndex = currentIndex >= 0 ? currentIndex : 0
+      const direction = event.key === 'ArrowDown' ? 1 : -1
+
+      // Wrap around at the beginning/end of the visible claim list.
+      const nextIndex =
+        (startingIndex + direction + filteredClaims.length) %
+        filteredClaims.length
+
+      const nextClaim = filteredClaims[nextIndex]
+
+      setSelectedClaimId(nextClaim.id)
+      setSelectedIssueId(null)
+
+      // Move actual keyboard focus to the selected claim row.
+      requestAnimationFrame(() => {
+        claimRowRefs.current[nextClaim.id]?.focus()
+        claimRowRefs.current[nextClaim.id]?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest',
+        })
+      })
+
+      return
+    }
+
+    if (event.key === 'Enter') {
+      const focusedClaimRow = target.closest?.('.claim-row')
+
+      if (focusedClaimRow) {
+        event.preventDefault()
+        const claim = filteredClaims.find(
+          (item) => item.id === focusedClaimRow.dataset.claimId
+        )
+        if (claim) selectClaim(claim)
+      }
+    }
+  }
+
+  window.addEventListener('keydown', handleKeyboardNavigation)
+
+  return () => {
+    window.removeEventListener('keydown', handleKeyboardNavigation)
+  }
+}, [filteredClaims, selectedClaimId, selectedIssueId])
+
   function selectClaim(claim) {
     setSelectedClaimId(claim.id)
     setSelectedIssueId(null)
@@ -402,7 +492,7 @@ export default function AuditWorkspace() {
           <AlertTriangle size={28} />
           <h1>Could not load the audit fixture</h1>
           <p>{loadError}</p>
-          <p>Confirm that <code>frontend/public/mock-audit.json</code> exists, then reload the page.</p>
+          <p>Confirm that the backend is running at http://localhost:8000 and reload the page.</p>
         </div>
       </main>
     )
@@ -534,6 +624,14 @@ export default function AuditWorkspace() {
               />
             </label>
 
+            <p className="keyboard-hint">
+              Keyboard: <kbd>↑</kbd> <kbd>↓</kbd> navigate claims
+              <span>·</span>
+              <kbd>Enter</kbd> inspect
+              <span>·</span>
+              <kbd>Esc</kbd> close issue
+            </p>
+
             <div className="claim-list">
               {filteredClaims.map((claim, index) => {
                 const active = selectedClaimId === claim.id && !selectedIssueId
@@ -542,7 +640,12 @@ export default function AuditWorkspace() {
                     type="button"
                     className={`claim-row ${active ? 'selected' : ''}`}
                     key={claim.id}
+                    data-claim-id={claim.id}
+                    ref={(element) => {
+                    claimRowRefs.current[claim.id] = element
+                    }}
                     onClick={() => selectClaim(claim)}
+                    aria-pressed={active}
                   >
                     <span className="claim-index">{String(index + 1).padStart(2, '0')}</span>
                     <span className="claim-row-copy">
