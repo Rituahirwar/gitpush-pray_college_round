@@ -1,0 +1,151 @@
+.verdict-bar-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  width: 100%;
+}
+
+.verdict-bar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.verdict-bar-needs-review {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--text);
+}
+
+.review-badge-tick {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 13px;
+  height: 13px;
+  border: 1px solid var(--text);
+  background-color: var(--surface-subtle);
+  font-size: 0.62rem;
+  font-weight: 700;
+}
+
+/* Stacked bar */
+.verdict-stacked-bar {
+  display: flex;
+  height: 14px;
+  width: 100%;
+  border: 1px solid var(--line-strong);
+  background-color: var(--surface);
+  overflow: hidden;
+}
+
+.verdict-bar-segment {
+  height: 100%;
+  border-right: 1px solid var(--bg);
+  box-sizing: border-box;
+}
+
+.verdict-bar-segment:last-child {
+  border-right: none;
+}
+
+/* Greyscale Hatch Patterns */
+
+/* 1. supported: 45deg diagonal hatch */
+.hatch-supported {
+  background-color: var(--surface);
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--text) 0,
+    var(--text) 2px,
+    transparent 2px,
+    transparent 6px
+  );
+}
+
+/* 2. contradicted: dense crosshatch */
+.hatch-contradicted {
+  background-color: var(--surface);
+  background-image: 
+    repeating-linear-gradient(45deg, var(--white) 0, var(--white) 1.5px, transparent 1.5px, transparent 4px),
+    repeating-linear-gradient(-45deg, var(--white) 0, var(--white) 1.5px, transparent 1.5px, transparent 4px);
+}
+
+/* 3. unsupported: stipple dots */
+.hatch-insufficient {
+  background-color: var(--surface);
+  background-image: radial-gradient(var(--text) 1.5px, transparent 1.5px);
+  background-size: 5px 5px;
+}
+
+/* 4. ambiguous: horizontal lines */
+.hatch-ambiguous {
+  background-color: var(--surface);
+  background-image: repeating-linear-gradient(
+    0deg,
+    var(--muted) 0,
+    var(--muted) 1.5px,
+    transparent 1.5px,
+    transparent 5px
+  );
+}
+
+.hatch-empty {
+  background-color: var(--surface-subtle);
+}
+
+/* Text legend next to the hatch patterns */
+.verdict-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.1rem;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding-top: 0.2rem;
+}
+
+.verdict-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.verdict-legend-swatch {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 1px solid var(--line-strong);
+  flex-shrink: 0;
+}
+
+.verdict-legend-glyph {
+  font-weight: 700;
+  color: var(--text);
+}
+
+.verdict-legend-label {
+  color: var(--muted);
+}
+
+.verdict-legend-count {
+  color: var(--text);
+  font-weight: 700;
+}
+
+/* Assessment box */
+.verdict-bar-assessment {
+  margin-top: 0.4rem;
+  padding: 0.65rem 0.85rem;
+  background-color: var(--surface-subtle);
+  border-left: 2px solid var(--text);
+}
+
+.assessment-text {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.45;
+  color: var(--text);
+}

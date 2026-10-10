@@ -1,0 +1,167 @@
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: var(--text);
+  box-sizing: border-box;
+}
+
+.app-shell__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.85rem 1.75rem;
+  background-color: var(--bg);
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.app-shell__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.app-shell__logo {
+  display: inline-flex;
+  color: var(--text);
+}
+
+.app-shell__title {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--text);
+}
+
+.app-shell__badge {
+  padding: 0.15rem 0.45rem;
+  border: 1px solid var(--line-strong);
+  background-color: var(--surface);
+  font-size: 0.65rem;
+  color: var(--muted);
+}
+
+/* Nav */
+.app-shell__nav {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.app-shell__nav-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.app-shell__nav-btn:hover {
+  color: var(--text);
+  border-color: var(--line);
+}
+
+.app-shell__nav-btn.is-active {
+  color: var(--text);
+  border-color: var(--line-strong);
+  background-color: var(--surface);
+}
+
+.app-shell__nav-btn--action {
+  border: 1px solid var(--line-strong);
+  color: var(--text);
+  background-color: var(--surface-subtle);
+}
+
+.app-shell__nav-btn--action:hover {
+  background-color: var(--text);
+  color: var(--black);
+}
+
+/* Context Strip */
+.app-shell__context-strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1.75rem;
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+}
+
+.context-strip__doc {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.context-strip__doc-name {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.context-strip__stats {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.stat-item {
+  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.stat-glyph {
+  color: var(--muted);
+}
+
+.stat-separator {
+  color: var(--dim);
+}
+
+.stat-item--flag {
+  color: var(--text);
+  border: 1px solid var(--line-strong);
+  padding: 0.1rem 0.35rem;
+  background-color: var(--surface-subtle);
+}
+
+.app-shell__main {
+  flex: 1;
+  padding: 1.5rem 1.75rem;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .app-shell__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+  }
+  .app-shell__context-strip {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+    padding: 0.5rem 1rem;
+  }
+  .app-shell__main {
+    padding: 1rem;
+  }
+}

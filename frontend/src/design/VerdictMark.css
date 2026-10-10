@@ -1,0 +1,126 @@
+/* Glyph only styling */
+.verdict-glyph {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.verdict-glyph--contradicted {
+  color: var(--white);
+}
+
+/* Badge mode: glyph + label */
+.verdict-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.2rem 0.55rem;
+  border: 1px solid var(--line-strong);
+  background: var(--surface-subtle);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.verdict-badge__glyph {
+  font-weight: 700;
+}
+
+.verdict-badge--contradicted {
+  background: var(--white);
+  color: var(--black);
+  border-color: var(--white);
+  font-weight: 700;
+}
+
+.verdict-badge--logic_gap,
+.verdict-badge--unsafe_advice {
+  border-style: dashed;
+}
+
+/* Inline manuscript markup */
+.verdict-inline {
+  background: transparent;
+  color: inherit;
+  padding: 0 0.1rem;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.verdict-inline:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
+
+/* 1. supported: thin solid underline */
+.mark-supported {
+  text-decoration: underline solid var(--text) 1.5px;
+  text-underline-offset: 4px;
+}
+
+/* 2. contradicted: inverted highlight (light background, dark text) */
+.mark-contradicted {
+  background-color: var(--text);
+  color: var(--black);
+  padding: 0.05rem 0.25rem;
+  font-weight: 600;
+}
+
+/* 3. unsupported: dashed underline */
+.mark-insufficient {
+  text-decoration: underline dashed var(--muted) 1.5px;
+  text-underline-offset: 4px;
+}
+
+/* 4. ambiguous: wavy underline */
+.mark-ambiguous {
+  text-decoration: underline wavy var(--text) 1.5px;
+  text-underline-offset: 4px;
+}
+
+/* 5. logic_gap: double underline */
+.mark-logic-gap {
+  text-decoration: underline double var(--text) 2px;
+  text-underline-offset: 4px;
+}
+
+/* 6. unsafe_advice: square brackets */
+.mark-unsafe-advice .mark-bracket {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0.15rem;
+}
+
+/* Superscript footnote */
+.verdict-footnote {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 600;
+  vertical-align: super;
+  margin-left: 0.2rem;
+  padding: 0.05rem 0.25rem;
+  background-color: var(--surface-raised);
+  border: 1px solid var(--line);
+  color: var(--text);
+}
+
+.mark-contradicted .verdict-footnote {
+  background-color: var(--black);
+  color: var(--white);
+  border-color: var(--black);
+}
+
+/* Selected state in manuscript */
+.verdict-inline--selected {
+  outline: 1px solid var(--text);
+  outline-offset: 2px;
+}

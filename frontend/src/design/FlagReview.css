@@ -1,0 +1,26 @@
+.flag-review {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.flag-review__glyph {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  background-color: var(--surface-subtle);
+  border: 1px solid var(--text);
+  color: var(--text);
+  font-size: 0.65rem;
+}
+
+.flag-review__label {
+  letter-spacing: 0.08em;
+  color: var(--text);
+}

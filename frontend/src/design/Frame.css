@@ -1,0 +1,81 @@
+.blueprint-frame {
+  position: relative;
+  background-color: var(--surface);
+  border: 1px solid var(--line);
+  padding: 1.25rem;
+  box-sizing: border-box;
+}
+
+.blueprint-frame--subtle {
+  background-color: var(--surface-subtle);
+}
+
+.blueprint-frame--transparent {
+  background-color: transparent;
+}
+
+/* Corner ticks - 4px technical crosshair marks */
+.corner-tick {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  pointer-events: none;
+}
+
+.corner-tick--tl {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid var(--dim);
+  border-left: 2px solid var(--dim);
+}
+
+.corner-tick--tr {
+  top: -1px;
+  right: -1px;
+  border-top: 2px solid var(--dim);
+  border-right: 2px solid var(--dim);
+}
+
+.corner-tick--bl {
+  bottom: -1px;
+  left: -1px;
+  border-bottom: 2px solid var(--dim);
+  border-left: 2px solid var(--dim);
+}
+
+.corner-tick--br {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 2px solid var(--dim);
+  border-right: 2px solid var(--dim);
+}
+
+.blueprint-frame__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.85rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px dashed var(--line);
+}
+
+.blueprint-frame__header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.frame-micro-label {
+  color: var(--muted);
+  font-size: 0.68rem;
+}
+
+.frame-title {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--text);
+}
+
+.blueprint-frame__content {
+  position: relative;
+}

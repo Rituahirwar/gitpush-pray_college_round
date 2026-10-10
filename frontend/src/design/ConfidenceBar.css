@@ -1,0 +1,28 @@
+.confidence-bar {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.confidence-bar__segments {
+  display: flex;
+  gap: 3px;
+}
+
+.confidence-bar__segment {
+  width: 10px;
+  height: 12px;
+  border: 1px solid var(--line-strong);
+  background-color: var(--surface);
+  transition: background-color var(--transition-fast);
+}
+
+.confidence-bar__segment.is-filled {
+  background-color: var(--text);
+  border-color: var(--text);
+}
+
+.confidence-bar__label {
+  font-size: 0.72rem;
+  color: var(--text);
+}
