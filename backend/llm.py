@@ -12,6 +12,8 @@ from google.genai.errors import APIError
 load_dotenv("backend/.env")
 load_dotenv(".env")
 
+DEFAULT_MODEL = "gemini-3.5-flash-lite"
+
 CACHE_DIR = Path(".llm_cache")
 
 def compute_cache_key(model: str, system_prompt: str, user_content: str, schema: dict = None) -> str:

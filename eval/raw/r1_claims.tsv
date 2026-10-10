@@ -1,0 +1,25 @@
+id	doc	claim	gold_label	gold_page	notes
+R1-C001	Report 1 – Fr. CRCE admissions & fee document	Fr. CRCE is an autonomous college affiliated to the University of Mumbai.	supported	1	Stated in the overview
+R1-C002	Report 1 – Fr. CRCE admissions & fee document	The Open category fee for 2026–27 is ₹2,15,000.	supported	1	Fee table and intro
+R1-C003	Report 1 – Fr. CRCE admissions & fee document	SC/ST candidates pay ₹0 at reporting.	supported	1	Fee table
+R1-C004	Report 1 – Fr. CRCE admissions & fee document	OBC (Male) pays ₹1,21,522 and OBC (Female) pays ₹28,043.	supported	1	Fee table
+R1-C005	Report 1 – Fr. CRCE admissions & fee document	A separate ₹1,800 admission form and processing fee applies.	supported	1	Stated under the fee table
+R1-C006	Report 1 – Fr. CRCE admissions & fee document	B.Tech Computer Engineering has an intake of 180.	supported	1	Courses table
+R1-C007	Report 1 – Fr. CRCE admissions & fee document	The library has around 33,000 volumes.	supported	2	Facilities section
+R1-C008	Report 1 – Fr. CRCE admissions & fee document	The college ranked 43rd among the top 175 engineering institutes in the TOI 2026 survey.	supported	1	Overview
+R1-C009	Report 1 – Fr. CRCE admissions & fee document	Students from boards other than the Maharashtra State Board need a migration certificate.	supported	2	Documents list
+R1-C010	Report 1 – Fr. CRCE admissions & fee document	The college was established in 1990.	contradicted	1	Doc says 1984
+R1-C011	Report 1 – Fr. CRCE admissions & fee document	The Open category fee is ₹1,80,000.	contradicted	1	Doc says ₹2,15,000
+R1-C012	Report 1 – Fr. CRCE admissions & fee document	B.Tech Mechanical Engineering has an intake of 120.	contradicted	1	Doc says 60
+R1-C013	Report 1 – Fr. CRCE admissions & fee document	The library has about 50,000 volumes.	contradicted	2	Doc says about 33,000
+R1-C014	Report 1 – Fr. CRCE admissions & fee document	Euphoria 2026 was held in February 2026.	contradicted	2	Doc says 19–23 January 2026
+R1-C015	Report 1 – Fr. CRCE admissions & fee document	Candidates report to the college between 9 a.m. and 4 p.m.	contradicted	1	Doc says 10 a.m. to 5 p.m.
+R1-C016	Report 1 – Fr. CRCE admissions & fee document	The UGC granted academic autonomy from 2020–21.	contradicted	1	Doc says 2024–25
+R1-C017	Report 1 – Fr. CRCE admissions & fee document	The college guarantees a job to every student.	insufficient	2	Doc says only “almost all eligible students are placed”
+R1-C018	Report 1 – Fr. CRCE admissions & fee document	A late fee of ₹500 per day applies to delayed payment.	insufficient		No late-fee information
+R1-C019	Report 1 – Fr. CRCE admissions & fee document	Fees are refundable within 30 days of withdrawal.	insufficient		No refund information
+R1-C020	Report 1 – Fr. CRCE admissions & fee document	The college provides on-campus hostel accommodation.	insufficient		Hostels aren’t mentioned
+R1-C021	Report 1 – Fr. CRCE admissions & fee document	Admission requires at least 60% in HSC PCM.	insufficient		No eligibility percentage is stated
+R1-C022	Report 1 – Fr. CRCE admissions & fee document	The total first-year cost for the Open category is exactly ₹2,15,000.	ambiguous	1	The doc adds ₹1,800 plus University processing fees, with no amount for the latter
+R1-C023	Report 1 – Fr. CRCE admissions & fee document	The college offers a B.E./B.Tech in AI & Data Science.	ambiguous	1	The doc says it was introduced in 2020 but doesn’t list it in the intake table
+R1-C024	Report 1 – Fr. CRCE admissions & fee document	The average placement package is ₹6.83 LPA.	ambiguous	2	It’s cited as “a placement highlight,” with no year or scope

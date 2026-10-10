@@ -3,5 +3,5 @@ Problem: AI answers can sound convincing but contain fabricated facts, unsupport
 Flow: user uploads a PDF and pastes an AI answer. The system splits the answer into claims, retrieves relevant PDF passages, labels each claim, and shows an audit dashboard.
 Verdicts: supported, contradicted, unsupported (source does not establish it), ambiguous (vague, conflicting or needs interpretation).
 error_type: none | hallucinated_fact | unsupported_claim. Extra issues: logic_gap, unsafe_advice. Confidence: low | medium | high computed from code checks, never a made-up percentage. needs_review is true when two passes disagree.
-Stack: FastAPI backend (Python), React + Vite frontend, Gemini API (key in backend/.env as GEMINI_API_KEY), PyMuPDF, rank_bm25, rapidfuzz. No database; process in memory.
+Stack: FastAPI backend (Python), React + Vite frontend, Gemini API (key in backend/.env as GEMINI_API_KEY, default model gemini-3.5-flash-lite), PyMuPDF, rank_bm25, rapidfuzz. No database; process in memory.
 The API shape is fixed in backend/contract.md and demo/mock-audit.json.

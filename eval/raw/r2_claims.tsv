@@ -1,0 +1,62 @@
+id	doc	claim	gold_label	gold_page	notes
+R2-C001	Report 2 – WMO State of the Global Climate 2025	The State of the Global Climate is an annual WMO flagship report.	supported	4	“About the report”
+R2-C002	Report 2 – WMO State of the Global Climate 2025	It updates key observed indicators and presents selected high-impact events.	supported	4	Same section
+R2-C003	Report 2 – WMO State of the Global Climate 2025	It is produced with National Meteorological and Hydrological Services, data centres, research institutions and UN partners.	supported	4	Same section
+R2-C004	Report 2 – WMO State of the Global Climate 2025	The 2025 edition adds a new indicator, Earth’s energy imbalance.	supported	4, 20	“What the report covers”
+R2-C005	Report 2 – WMO State of the Global Climate 2025	It includes a case study on climate and heat impacts on health.	supported	4	Same section
+R2-C006	Report 2 – WMO State of the Global Climate 2025	It gives no projections or forecasts and prescribes no policy actions.	supported	4	“What the report does not cover”
+R2-C007	Report 2 – WMO State of the Global Climate 2025	CO₂ in 2024 was 423.9 ppm, 152% of the pre-industrial level.	supported	6	State of the indicator
+R2-C008	Report 2 – WMO State of the Global Climate 2025	Global temperature in 2025 was 1.43 °C above the 1850–1900 average.	supported	8	Key message
+R2-C009	Report 2 – WMO State of the Global Climate 2025	2025 was the second or third warmest year in the 176-year record.	supported	8	Key message
+R2-C010	Report 2 – WMO State of the Global Climate 2025	Ocean heat content in 2025 was the highest in the 66-year record.	supported	10	Key message
+R2-C011	Report 2 – WMO State of the Global Climate 2025	Sea level at the end of 2025 was about 11 cm above January 1993.	supported	12	State of the indicator
+R2-C012	Report 2 – WMO State of the Global Climate 2025	The Arctic sea-ice maximum was 14.19 million km², the lowest on record.	supported	18	Key message
+R2-C013	Report 2 – WMO State of the Global Climate 2025	Earth’s energy imbalance in 2025 was the highest since records began in 1960.	supported	21	State of the indicator
+R2-C014	Report 2 – WMO State of the Global Climate 2025	CO₂, CH₄ and N₂O all hit record levels in 2024, the latest year with consolidated figures.	supported	5, 6	Summary and CO₂ section
+R2-C015	Report 2 – WMO State of the Global Climate 2025	CO₂ was 423.9 ± 0.2 ppm, 3.5 ppm more than 2023, and 152% of the 1750 level.	supported	6	State of the indicator
+R2-C016	Report 2 – WMO State of the Global Climate 2025	The 2024 CO₂ rise was the largest since modern measurements began in 1957.	supported	6	Same section
+R2-C017	Report 2 – WMO State of the Global Climate 2025	CH₄ reached 1,942 ppb, 266% of the pre-industrial level.	supported	6	Same section
+R2-C018	Report 2 – WMO State of the Global Climate 2025	N₂O reached 338.0 ppb, 125% of the pre-industrial level.	supported	6	Same section
+R2-C019	Report 2 – WMO State of the Global Climate 2025	CO₂ is the highest in at least 2 million years; CH₄ and N₂O in at least 800,000 years.	supported	6, 7	Key message and background
+R2-C020	Report 2 – WMO State of the Global Climate 2025	Station data show all three gases kept rising in 2025.	supported	6	Key message
+R2-C021	Report 2 – WMO State of the Global Climate 2025	The 2025 temperature is 1.43 ± 0.13 °C, based on nine datasets.	supported	8	State of the indicator
+R2-C022	Report 2 – WMO State of the Global Climate 2025	2025 was second in two datasets and third in seven.	supported	8, 31	Text and Table 1
+R2-C023	Report 2 – WMO State of the Global Climate 2025	2024 remains the warmest year at 1.55 °C.	supported	8	Key message
+R2-C024	Report 2 – WMO State of the Global Climate 2025	2015–2025 were the eleven warmest years, and 2023–2025 the three warmest in all nine datasets.	supported	8	State of the indicator
+R2-C025	Report 2 – WMO State of the Global Climate 2025	2025 was cooler than 2024 partly because a strong El Niño gave way to a weak La Niña.	supported	5, 8	“Due in part to the transition”
+R2-C026	Report 2 – WMO State of the Global Climate 2025	January 2025 was the warmest January on record.	supported	8	State of the indicator
+R2-C027	Report 2 – WMO State of the Global Climate 2025	2025 was the warmest year without El Niño conditions on record.	supported	22	ENSO section
+R2-C028	Report 2 – WMO State of the Global Climate 2025	One year above 1.5 °C (such as 2024) does not mean the Paris 1.5 °C level is exceeded, because the goal refers to decades.	supported	9	Indicator background
+R2-C029	Report 2 – WMO State of the Global Climate 2025	About 91% of excess energy goes to the ocean, 5% to the continents, 3% to ice, 1% to the atmosphere.	supported	5, 11, 20	Several sections
+R2-C030	Report 2 – WMO State of the Global Climate 2025	Upper-2,000 m ocean heat content set a record in 2025, and each of the past nine years was a record.	supported	10	State of the indicator
+R2-C031	Report 2 – WMO State of the Global Climate 2025	The 2005–2025 ocean warming rate is more than twice the 1960–2005 rate.	supported	10	Key message
+R2-C032	Report 2 – WMO State of the Global Climate 2025	About 90% of the ocean surface had a marine heatwave in 2025.	supported	8	State of the indicator
+R2-C033	Report 2 – WMO State of the Global Climate 2025	The ocean absorbed about 29% of human CO₂ emissions in 2015–2024.	supported	5, 7, 14	Several sections
+R2-C034	Report 2 – WMO State of the Global Climate 2025	This lowers ocean pH (acidification).	supported	5, 14	Summary and Ocean pH
+R2-C035	Report 2 – WMO State of the Global Climate 2025	Ocean surface pH changed by −0.017 per decade over 1985–2025.	supported	14	State of the indicator
+R2-C036	Report 2 – WMO State of the Global Climate 2025	Eight of the ten most negative glacier mass balances since 1950 occurred since 2016.	supported	5, 16	Key message
+R2-C037	Report 2 – WMO State of the Global Climate 2025	The Arctic maximum of 14.19 million km² was on 20 or 21 March.	supported	18	State of the indicator
+R2-C038	Report 2 – WMO State of the Global Climate 2025	The Antarctic minimum of 2.06 million km² tied for second lowest.	supported	19	Sea-ice section
+R2-C039	Report 2 – WMO State of the Global Climate 2025	The past four years had the four lowest Antarctic minima.	supported	19	Same section
+R2-C040	Report 2 – WMO State of the Global Climate 2025	Sea level was about 11 cm above January 1993, when satellite records began.	supported	12	State of the indicator
+R2-C041	Report 2 – WMO State of the Global Climate 2025	Sea level rose 2.65 mm/yr in 1993–2011 and 4.75 mm/yr in 2012–2025.	supported	12	Same section
+R2-C042	Report 2 – WMO State of the Global Climate 2025	Earth’s energy imbalance is energy received from the Sun minus energy radiated back to space.	supported	20	Indicator background
+R2-C043	Report 2 – WMO State of the Global Climate 2025	The imbalance’s rate of increase (estimated from ocean heat content) was 0.13 W m⁻² per decade over 1960–2025 and 0.30 over 2001–2025.	supported	21	State of the indicator
+R2-C044	Report 2 – WMO State of the Global Climate 2025	Heat stored on Earth is not only increasing but accelerating.	supported	21	Same section
+R2-C045	Report 2 – WMO State of the Global Climate 2025	The Texas floods on 4–5 July caused 135 deaths.	supported	27	Fig. 14
+R2-C046	Report 2 – WMO State of the Global Climate 2025	The California wildfires in January caused 30+ deaths and over US$60 billion in losses.	supported	27	Fig. 14
+R2-C047	Report 2 – WMO State of the Global Climate 2025	Hurricane Melissa hit western Jamaica on 28 October with winds of 298 km/h.	supported	27	Fig. 14
+R2-C048	Report 2 – WMO State of the Global Climate 2025	Japan recorded 41.8 °C at Isesaki on 5 August, its highest on record.	supported	27	Fig. 14
+R2-C049	Report 2 – WMO State of the Global Climate 2025	Monsoon flooding caused over 1,000 deaths in Pakistan.	supported	27	Fig. 14
+R2-C050	Report 2 – WMO State of the Global Climate 2025	About half the world is at risk of dengue, with 100–400 million infections a year and record reported cases.	supported	28	Case study
+R2-C051	Report 2 – WMO State of the Global Climate 2025	Over a third of the global workforce (about 1.2 billion) is exposed to workplace heat risk each year.	supported	29	Case study
+R2-C052	Report 2 – WMO State of the Global Climate 2025	Greenhouse gases, ocean heat, sea level and the energy imbalance were at or near record levels, while glaciers and sea ice kept losing ice.	supported	5, 10, 12, 21	Summary and indicator sections
+R2-C053	Report 2 – WMO State of the Global Climate 2025	2025 was among the three warmest years, and 2023–2025 are the three warmest.	supported	5, 8	Summary and key message
+R2-C054	Report 2 – WMO State of the Global Climate 2025	Many figures refer to 2024 because consolidated 2025 greenhouse gas figures are not yet available.	supported	5, 6	Summary and CO₂ section
+R2-C055	Report 2 – WMO State of the Global Climate 2025	Section 2: CO₂ in 2024 was “6.2 ppm more than in 2023”.	contradicted	6	PDF says 3.5 ppm more than in 2023.
+R2-C056	Report 2 – WMO State of the Global Climate 2025	Section 5: “six of the ten most negative annual mass balances since 1950 have occurred since 2016”.	contradicted	5, 16	PDF says eight of the ten.
+R2-C057	Report 2 – WMO State of the Global Climate 2025	Section 7: Texas floods on 4–5 July caused “235 deaths”.	contradicted	27	PDF says 135 deaths.
+R2-C058	Report 2 – WMO State of the Global Climate 2025	Section 5: “The Greenland ice sheet lost about 270 billion tonnes of ice in 2025.”	insufficient	5	PDF says only that the Greenland and Antarctic ice sheets lost significant mass. It gives no tonnage and no 2025 figure.
+R2-C059	Report 2 – WMO State of the Global Climate 2025	Section 7: Pakistan’s monsoon flooding “destroyed about 2 million homes”.	insufficient	27	PDF gives over 1,000 deaths, 1.57 million people affected and over 40,000 displaced. It says nothing about homes destroyed.
+R2-C060	Report 2 – WMO State of the Global Climate 2025	Section 3: 2025 was cooler than 2024 “because” a strong El Niño gave way to weak La Niña (the word “partly” was removed).	ambiguous	5, 8	PDF says “due in part to” the El Niño to La Niña transition and “consistent with” the shift. It does not say this was the sole cause.
+R2-C061	Report 2 – WMO State of the Global Climate 2025	Section 7: Hurricane Melissa had winds of 298 km/h, “the most intense landfall on record”.	ambiguous	27	PDF says “equal-most intense landfall on record for a North Atlantic storm”. The claim drops “equal-most” and “North Atlantic”, so it can be read as an all-basin record.

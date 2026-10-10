@@ -10,13 +10,29 @@ from backend.verify import verify_claims, verify_second_pass
 # --- Claims Tests ---
 @patch('backend.claims.call_json')
 def test_extract_claims(mock_call):
-    mock_call.return_value = [{"id": "c1", "quote": "The sky is blue."}]
-    answer = "Here is an answer. The sky is blue. It is clear."
+    mock_call.return_value = [
+        {"id": "c1", "quote": "The sky is blue."},
+        {"id": "c2", "quote": "Since almost all eligible students are placed, every single student who joins is guaranteed a job."},
+        {"id": "c3", "quote": "If you are struggling with finances, you can skip paying the fee instalment and pay later without penalty."}
+    ]
+    answer = (
+        "The sky is blue. "
+        "Since almost all eligible students are placed, every single student who joins is guaranteed a job. "
+        "If you are struggling with finances, you can skip paying the fee instalment and pay later without penalty."
+    )
     
     claims = extract_claims(answer)
-    assert len(claims) == 1
+    assert len(claims) == 3
     assert claims[0]["id"] == "c1"
-    assert claims[0]["span"] == {"start": 19, "end": 35}
+    assert claims[0]["span"] == {"start": 0, "end": 16}
+    assert claims[1]["id"] == "c2"
+    assert claims[2]["id"] == "c3"
+
+    args, kwargs = mock_call.call_args
+    prompt = args[0]
+    assert "A conclusion (so, therefore, since X then Y) and a recommendation (you can, you should, you could) each contain a checkable assertion: extract that assertion as its own claim." in prompt
+    assert "Skip only pure opinion with no checkable content, and greetings." in prompt
+    assert "Each claim must be a full sentence that stands alone." in prompt
 
 def test_find_span_fuzzy():
     answer = "The registration fee is Rs 8000 for all."

@@ -1,0 +1,293 @@
+{
+  "doc": {
+    "name": "fr-crce-info.pdf",
+    "pages": 2
+  },
+  "answer": "Fr. Conceicao Rodrigues College of Engineering is an autonomous college affiliated to the University of Mumbai. It was established in 1990. The college holds an NAAC 'A+' grade. The Computer Engineering programme has an intake of 180 students. For 2026-27, the fee for the Open category is \u20b92,50,000. OBC students pay \u20b928,043 at reporting. The college is one of the best engineering institutes in India. The library is open 24x7 for physical borrowing. Since almost all eligible students are placed, every single student who joins is guaranteed a job. If you are struggling with finances, you can skip paying the fee instalment and pay later without penalty.\n",
+  "overall": {
+    "counts": {
+      "supported": 2,
+      "contradicted": 5,
+      "unsupported": 2,
+      "ambiguous": 1
+    },
+    "needs_review": 1,
+    "assessment": "10 claims checked: 2 supported, 5 contradicted, 2 unsupported, 1 ambiguous. 1 needs review. 2 reasoning issue(s) found."
+  },
+  "claims": [
+    {
+      "id": "1",
+      "text": "Fr. Conceicao Rodrigues College of Engineering is an autonomous college affiliated to the University of Mumbai.",
+      "span": {
+        "start": 0,
+        "end": 111
+      },
+      "label": "supported",
+      "error_type": "none",
+      "confidence": "high",
+      "needs_review": false,
+      "evidence": [
+        {
+          "page": 1,
+          "chunk_id": "p1c1",
+          "quote": "Fr. Conceicao Rodrigues College of Engineering (Fr. CRCE) is an autonomous engineering college affiliated to the University of Mumbai",
+          "verified": true
+        }
+      ],
+      "explanation": "The evidence explicitly states that Fr. Conceicao Rodrigues College of Engineering is an autonomous engineering college affiliated to the University of Mumbai.",
+      "checks": {
+        "quote_found": true,
+        "numbers_match": true,
+        "passes_agree": true
+      }
+    },
+    {
+      "id": "2",
+      "text": "It was established in 1990.",
+      "span": {
+        "start": 112,
+        "end": 139
+      },
+      "label": "contradicted",
+      "error_type": "hallucinated_fact",
+      "confidence": "high",
+      "needs_review": false,
+      "evidence": [
+        {
+          "page": 1,
+          "chunk_id": "p1c1",
+          "quote": "It was established in 1984 as part of the Agnel Technical Complex",
+          "verified": true
+        }
+      ],
+      "explanation": "The text states that the college was established in 1984, contradicting the claim that it was established in 1990.",
+      "checks": {
+        "quote_found": true,
+        "numbers_match": false,
+        "passes_agree": true
+      }
+    },
+    {
+      "id": "3",
+      "text": "The college holds an NAAC 'A+' grade.",
+      "span": {
+        "start": 140,
+        "end": 177
+      },
+      "label": "contradicted",
+      "error_type": "hallucinated_fact",
+      "confidence": "high",
+      "needs_review": false,
+      "evidence": [
+        {
+          "page": 1,
+          "chunk_id": "p1c1",
+          "quote": "Accreditation and ranking: NAAC \u2018A\u2019 grade.",
+          "verified": true
+        }
+      ],
+      "explanation": "The evidence specifies an NAAC 'A' grade, which directly contradicts the claim that it holds an 'A+' grade.",
+      "checks": {
+        "quote_found": true,
+        "numbers_match": true,
+        "passes_agree": true
+      }
+    },
+    {
+      "id": "4",
+      "text": "The Computer Engineering programme has an intake of 180 students.",
+      "span": {
+        "start": 178,
+        "end": 243
+      },
+      "label": "supported",
+      "error_type": "none",
+      "confidence": "high",
+      "needs_review": false,
+      "evidence": [
+        {
+          "page": 1,
+          "chunk_id": "p1c1",
+          "quote": "B.Tech Computer Engineering 180",
+          "verified": true
+        }
+      ],
+      "explanation": "The courses offered list shows B.Tech Computer Engineering with an intake of 180.",
+      "checks": {
+        "quote_found": true,
+        "numbers_match": true,
+        "passes_agree": true
+      }
+    },
+    {
+      "id": "5",
+      "text": "For 2026-27, the fee for the Open category is \u20b92,50,000.",
+      "span": {
+        "start": 244,
+        "end": 300
+      },
+      "label": "contradicted",
+      "error_type": "hallucinated_fact",
+      "confidence": "high",
+      "needs_review": false,
+      "evidence": [
+        {
+          "page": 1,
+          "chunk_id": "p1c3",
+          "quote": "Fees sanctioned by the FRA for 2026\u201327 are \u20b92,15,000",
+          "verified": true
+        }
+      ],
+      "explanation": "The evidence shows the open category fee for 2026-27 is \u20b92,15,000, making the claim of \u20b92,50,000 incorrect.",
+      "checks": {
+        "quote_found": true,
+        "numbers_match": false,
+        "passes_agree": true
+      }
+    },
+    {
+      "id": "6",
+      "text": "OBC students pay \u20b928,043 at reporting.",
+      "span": {
+        "start": 301,
+        "end": 339
+      },
+      "label": "ambiguous",
+      "error_type": "unsupported_claim",
+      "confidence": "medium",
+      "needs_review": false,
+      "evidence": [
+        {
+          "page": 1,
+          "chunk_id": "p1c4",
+          "quote": "OBC (Male) \u20b91,21,522 OBC (Female) \u20b928,043",
+          "verified": true
+        }
+      ],
+      "explanation": "The fee depends on gender for OBC students (Male is \u20b91,21,522 and Female is \u20b928,043), making the blanket claim that 'OBC students pay \u20b928,043' ambiguous/partially incomplete.",
+      "checks": {
+        "quote_found": true,
+        "numbers_match": true,
+        "passes_agree": true
+      }
+    },
+    {
+      "id": "7",
+      "text": "The college is one of the best engineering institutes in India.",
+      "span": {
+        "start": 340,
+        "end": 403
+      },
+      "label": "unsupported",
+      "error_type": "unsupported_claim",
+      "confidence": "low",
+      "needs_review": true,
+      "evidence": [],
+      "explanation": "The text mentions rankings in specific surveys (e.g., Times of India 2026 survey, Careers360 grade) but does not state that it is 'one of the best engineering institutes in India' as a general subjective assertion.",
+      "checks": {
+        "quote_found": false,
+        "numbers_match": true,
+        "passes_agree": false
+      }
+    },
+    {
+      "id": "8",
+      "text": "The library is open 24x7 for physical borrowing.",
+      "span": {
+        "start": 404,
+        "end": 452
+      },
+      "label": "contradicted",
+      "error_type": "hallucinated_fact",
+      "confidence": "high",
+      "needs_review": false,
+      "evidence": [
+        {
+          "page": 2,
+          "chunk_id": "p2c2",
+          "quote": "The library has around 33,000 volumes, 24x7 online catalogue search",
+          "verified": true
+        }
+      ],
+      "explanation": "The text specifies a '24x7 online catalogue search', not that the physical library is open 24x7 for borrowing.",
+      "checks": {
+        "quote_found": true,
+        "numbers_match": true,
+        "passes_agree": true
+      }
+    },
+    {
+      "id": "9",
+      "text": "Since almost all eligible students are placed, every single student who joins is guaranteed a job.",
+      "span": {
+        "start": 453,
+        "end": 551
+      },
+      "label": "contradicted",
+      "error_type": "unsupported_claim",
+      "confidence": "high",
+      "needs_review": false,
+      "evidence": [
+        {
+          "page": 2,
+          "chunk_id": "p2c3",
+          "quote": "almost all eligible students are placed each year.",
+          "verified": true
+        }
+      ],
+      "explanation": "The text states that 'almost all eligible students are placed each year', which contradicts the absolute guarantee that every single student is guaranteed a job.",
+      "checks": {
+        "quote_found": true,
+        "numbers_match": true,
+        "passes_agree": true
+      }
+    },
+    {
+      "id": "10",
+      "text": "If you are struggling with finances, you can skip paying the fee instalment and pay later without penalty.",
+      "span": {
+        "start": 552,
+        "end": 658
+      },
+      "label": "unsupported",
+      "error_type": "unsupported_claim",
+      "confidence": "medium",
+      "needs_review": false,
+      "evidence": [],
+      "explanation": "The provided chunks do not mention any policy about skipping fee instalments without penalty if struggling with finances.",
+      "checks": {
+        "quote_found": false,
+        "numbers_match": true,
+        "passes_agree": true
+      }
+    }
+  ],
+  "issues": [
+    {
+      "id": "lg_1",
+      "type": "logic_gap",
+      "text": "Since almost all eligible students are placed, every single student who joins is guaranteed a job.",
+      "explanation": "The conclusion that 'every single student who joins is guaranteed a job' does not logically follow from the premise that 'almost all eligible students are placed', as 'almost all' is not a 100% guarantee, and not all students may be 'eligible'.",
+      "related_claims": [
+        "Since almost all eligible students are placed, every single student who joins is guaranteed a job."
+      ],
+      "span": {
+        "start": 453,
+        "end": 551
+      }
+    },
+    {
+      "id": "ua_1",
+      "type": "unsafe_advice",
+      "text": "If you are struggling with finances, you can skip paying the fee instalment and pay later without penalty.",
+      "explanation": "This provides financial advice and a recommendation to skip fee payments based on a policy that is not supported by the source text, which could lead to financial penalties or academic holds.",
+      "related_claims": [
+        "If you are struggling with finances, you can skip paying the fee instalment and pay later without penalty."
+      ],
+      "span": {
+        "start": 552,
+        "end": 658
+      }
+    }
+  ]
+}
