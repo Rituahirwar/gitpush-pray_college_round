@@ -21,10 +21,26 @@ GEMINI_API_KEY=your_gemini_api_key
 GEMINI_MODEL=gemini-3.5-flash-lite
 ```
 
-3. Start the backend server from the repository root:
+3. Run the application:
+
+### Unified Production Mode (FastAPI serves Frontend SPA)
+Build the frontend and run the FastAPI server to serve both the API and the user interface from a single port:
 ```bash
+# In frontend directory:
+npm run build
+
+# From repository root:
 uvicorn backend.main:app --port 8000
 ```
+Then open `http://localhost:8000`.
+
+**Summary:** `npm run build`, then `uvicorn backend.main:app --port 8000`, open `http://localhost:8000`.
+
+### Development Mode (Vite Hot-Reload + FastAPI)
+- Start backend: `uvicorn backend.main:app --port 8000`
+- Start frontend dev server: `cd frontend && npm run dev`
+- Open `http://localhost:5173`
+
 
 ### Evaluation Datasets
 The evaluation framework uses:
