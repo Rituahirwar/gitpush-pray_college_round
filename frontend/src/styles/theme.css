@@ -1,0 +1,130 @@
+:root {
+  /* Color Palette - Spec Section 5 */
+  --bg: #0B0B0C;
+  --panel: #161618;
+  --panel-2: #1D1D20;
+  --line: #2A2A2E;
+  --text: #D6D6D8;
+  --text-dim: #8A8A8F;
+  --text-bright: #F2F2F3;
+
+  /* Muted verdict dot indicators */
+  --dot-supported: #6FA88B;
+  --dot-contradicted: #C46B6B;
+  --dot-unsupported: #C9A55C;
+  --dot-ambiguous: #7C93B0;
+
+  /* Typography */
+  --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Radii */
+  --radius: 2px;
+  --radius-chip: 999px;
+
+  /* Focus Ring */
+  --focus-ring: 1px solid #F2F2F3;
+  --focus-offset: 2px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 24px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Global focus visibility */
+:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
+
+/* Typography Helpers */
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.mono-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.mono-chip {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Ghost & Primary Buttons */
+.btn-primary {
+  background-color: var(--text-bright);
+  color: #0B0B0C;
+  border: 1px solid var(--text-bright);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: opacity 120ms ease;
+}
+
+.btn-primary:hover:not(:disabled) {
+  opacity: 0.92;
+}
+
+.btn-primary:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--line);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 120ms ease;
+}
+
+.btn-ghost:hover:not(:disabled) {
+  border-color: var(--text-dim);
+  background-color: var(--panel);
+}
+
+.btn-ghost:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.app-root {
+  min-height: 100vh;
+  background-color: var(--bg);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+}

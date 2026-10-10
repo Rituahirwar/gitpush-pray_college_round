@@ -1,0 +1,291 @@
+.report-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 44px 24px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.report-empty-container {
+  max-width: 680px;
+  margin: 80px auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.report-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.report-title {
+  font-size: 38px;
+  line-height: 42px;
+  font-weight: 400;
+  color: var(--text-bright);
+  margin: 0 0 8px 0;
+}
+
+.report-meta {
+  font-size: 11px;
+  color: var(--text-dim);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.meta-sep {
+  color: var(--line);
+}
+
+.report-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-print {
+  padding: 7px 20px;
+}
+
+/* Counts Bar */
+.report-counts-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 14px 18px;
+  background-color: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.report-count-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+}
+
+.count-symbol {
+  font-weight: 700;
+  color: var(--text-bright);
+}
+
+.count-val {
+  font-weight: 700;
+  color: var(--text-bright);
+}
+
+.count-lbl {
+  color: var(--text-dim);
+}
+
+/* Table */
+.report-table-wrapper {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background-color: var(--panel);
+}
+
+.report-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.report-table th {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--line);
+  background-color: var(--panel-2);
+  font-size: 11px;
+}
+
+.report-table td {
+  padding: 14px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.cell-th-num, .cell-td-num {
+  width: 36px;
+  color: var(--text-dim);
+}
+
+.cell-th-verdict, .cell-td-verdict {
+  width: 130px;
+}
+
+.verdict-inline-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: var(--text-bright);
+}
+
+.cell-th-conf, .cell-td-conf {
+  width: 90px;
+  font-size: 11px;
+  color: var(--text-dim);
+}
+
+.cell-th-page, .cell-td-page {
+  width: 60px;
+  color: var(--text-dim);
+  font-size: 11px;
+}
+
+.cell-td-claim {
+  max-width: 420px;
+}
+
+.claim-text-body {
+  display: block;
+  color: var(--text-bright);
+  font-size: 14px;
+}
+
+.claim-text-exp {
+  display: block;
+  margin-top: 4px;
+  font-size: 11px;
+  color: var(--text-dim);
+}
+
+.cell-td-evidence {
+  max-width: 360px;
+  color: var(--text);
+  font-size: 13px;
+  line-height: 20px;
+}
+
+/* Issues Section */
+.report-issues-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.issues-section-title {
+  font-size: 22px;
+  font-weight: 400;
+  margin: 0;
+  color: var(--text-bright);
+}
+
+.report-issues-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 14px;
+}
+
+.report-issue-card {
+  padding: 14px 18px;
+  background-color: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.issue-chip {
+  font-size: 10px;
+  color: var(--dot-unsupported);
+}
+
+.issue-text {
+  margin: 0;
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--text-bright);
+}
+
+.issue-exp {
+  margin: 0;
+  font-size: 11px;
+  color: var(--text-dim);
+}
+
+/* Footer */
+.report-footer {
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  font-size: 11px;
+  color: var(--text-dim);
+  text-align: center;
+}
+
+/* ========================================================= */
+/* Print Stylesheet per FRONTEND_SPEC.md                      */
+/* White background, black text, navbar and buttons hidden    */
+/* ========================================================= */
+@media print {
+  body, .report-container {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  .no-print,
+  .navbar {
+    display: none !important;
+  }
+
+  .report-container {
+    max-width: 100% !important;
+    padding: 0 !important;
+    gap: 20px !important;
+  }
+
+  .report-title,
+  .issues-section-title,
+  .claim-text-body,
+  .issue-text,
+  .verdict-inline-badge {
+    color: #000000 !important;
+  }
+
+  .report-counts-bar,
+  .report-table-wrapper,
+  .report-issue-card {
+    background-color: #ffffff !important;
+    border-color: #000000 !important;
+  }
+
+  .report-table th {
+    background-color: #f0f0f0 !important;
+    color: #000000 !important;
+    border-bottom: 2px solid #000000 !important;
+  }
+
+  .report-table td {
+    border-bottom: 1px solid #cccccc !important;
+    color: #000000 !important;
+  }
+
+  .report-meta,
+  .claim-text-exp,
+  .issue-exp,
+  .cell-td-page,
+  .cell-td-conf,
+  .report-footer {
+    color: #444444 !important;
+  }
+
+  @page {
+    margin: 1.5cm;
+    size: portrait;
+  }
+}

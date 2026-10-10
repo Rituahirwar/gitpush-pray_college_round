@@ -1,0 +1,237 @@
+{
+  "headline": "heldout",
+  "heldout": {
+    "accuracy": 0.8113,
+    "always_supported_baseline": 0.7736,
+    "contradiction_recall": 1.0,
+    "false_alarm_rate": 0.0244,
+    "citation_validity": 1.0,
+    "retrieval_hit_rate": 1.0,
+    "needs_review_rate": 0.1887,
+    "accuracy_needs_review_true": 0.1,
+    "accuracy_needs_review_false": 0.9767,
+    "avg_seconds_per_claim": 0.9332,
+    "total_claims": 53,
+    "per_label": {
+      "supported": {
+        "precision": 0.9697,
+        "recall": 0.7805,
+        "f1": 0.8649,
+        "support": 41
+      },
+      "contradicted": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 6
+      },
+      "unsupported": {
+        "precision": 0.8,
+        "recall": 1.0,
+        "f1": 0.8889,
+        "support": 4
+      },
+      "ambiguous": {
+        "precision": 0.1111,
+        "recall": 0.5,
+        "f1": 0.1818,
+        "support": 2
+      }
+    },
+    "counts": {
+      "gold": {
+        "supported": 41,
+        "contradicted": 6,
+        "unsupported": 4,
+        "ambiguous": 2
+      },
+      "predicted": {
+        "supported": 33,
+        "contradicted": 6,
+        "unsupported": 5,
+        "ambiguous": 9
+      }
+    },
+    "confusion_matrix": {
+      "supported": {
+        "supported": 32,
+        "contradicted": 0,
+        "unsupported": 1,
+        "ambiguous": 8
+      },
+      "contradicted": {
+        "supported": 0,
+        "contradicted": 6,
+        "unsupported": 0,
+        "ambiguous": 0
+      },
+      "unsupported": {
+        "supported": 0,
+        "contradicted": 0,
+        "unsupported": 4,
+        "ambiguous": 0
+      },
+      "ambiguous": {
+        "supported": 1,
+        "contradicted": 0,
+        "unsupported": 0,
+        "ambiguous": 1
+      }
+    }
+  },
+  "dev": {
+    "accuracy": 0.8438,
+    "always_supported_baseline": 0.6875,
+    "contradiction_recall": 0.75,
+    "false_alarm_rate": 0.0455,
+    "citation_validity": 1.0,
+    "retrieval_hit_rate": 1.0,
+    "needs_review_rate": 0.125,
+    "accuracy_needs_review_true": 0.25,
+    "accuracy_needs_review_false": 0.9286,
+    "avg_seconds_per_claim": 0.8532,
+    "total_claims": 32,
+    "per_label": {
+      "supported": {
+        "precision": 0.9545,
+        "recall": 0.9545,
+        "f1": 0.9545,
+        "support": 22
+      },
+      "contradicted": {
+        "precision": 0.75,
+        "recall": 0.75,
+        "f1": 0.75,
+        "support": 4
+      },
+      "unsupported": {
+        "precision": 0.5,
+        "recall": 1.0,
+        "f1": 0.6667,
+        "support": 3
+      },
+      "ambiguous": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 3
+      }
+    },
+    "counts": {
+      "gold": {
+        "supported": 22,
+        "contradicted": 4,
+        "unsupported": 3,
+        "ambiguous": 3
+      },
+      "predicted": {
+        "supported": 22,
+        "contradicted": 4,
+        "unsupported": 6
+      }
+    },
+    "confusion_matrix": {
+      "supported": {
+        "supported": 21,
+        "contradicted": 0,
+        "unsupported": 1,
+        "ambiguous": 0
+      },
+      "contradicted": {
+        "supported": 0,
+        "contradicted": 3,
+        "unsupported": 1,
+        "ambiguous": 0
+      },
+      "unsupported": {
+        "supported": 0,
+        "contradicted": 0,
+        "unsupported": 3,
+        "ambiguous": 0
+      },
+      "ambiguous": {
+        "supported": 1,
+        "contradicted": 1,
+        "unsupported": 1,
+        "ambiguous": 0
+      }
+    }
+  },
+  "part2_planted_test": {
+    "planted_claims": [
+      {
+        "id": "R2-C055",
+        "gold_label": "contradicted",
+        "target_claim": "CO2 in 2024 was 6.2 ppm more than in 2023",
+        "matched": false,
+        "similarity": 0.794,
+        "matched_text": "",
+        "predicted_label": "N/A",
+        "correct_label": false
+      },
+      {
+        "id": "R2-C056",
+        "gold_label": "contradicted",
+        "target_claim": "six of the ten most negative annual mass balances since 1950 have occurred since 2016",
+        "matched": true,
+        "similarity": 1.0,
+        "matched_text": "In a global set of reference glaciers, six of the ten most negative annual mass balances since 1950 have occurred since 2016.",
+        "predicted_label": "contradicted",
+        "correct_label": true
+      },
+      {
+        "id": "R2-C057",
+        "gold_label": "contradicted",
+        "target_claim": "Texas floods on 4-5 July caused 235 deaths",
+        "matched": true,
+        "similarity": 0.861,
+        "matched_text": "Selected events from 2025 include the Texas floods on 4\u20135 July (235 deaths)",
+        "predicted_label": "ambiguous",
+        "correct_label": false
+      },
+      {
+        "id": "R2-C058",
+        "gold_label": "unsupported",
+        "target_claim": "Greenland ice sheet lost about 270 billion tonnes of ice in 2025",
+        "matched": true,
+        "similarity": 1.0,
+        "matched_text": "The Greenland ice sheet lost about 270 billion tonnes of ice in 2025.",
+        "predicted_label": "unsupported",
+        "correct_label": true
+      },
+      {
+        "id": "R2-C059",
+        "gold_label": "unsupported",
+        "target_claim": "Pakistan monsoon flooding destroyed about 2 million homes",
+        "matched": true,
+        "similarity": 0.944,
+        "matched_text": "Monsoon flooding caused over 1,000 deaths in Pakistan and destroyed about 2 million",
+        "predicted_label": "ambiguous",
+        "correct_label": false
+      },
+      {
+        "id": "R2-C060",
+        "gold_label": "ambiguous",
+        "target_claim": "2025 was cooler than 2024 because a strong El Nino gave way to weak La Nina",
+        "matched": true,
+        "similarity": 0.929,
+        "matched_text": "2025 was slightly cooler than 2024 because a strong El Ni\u00f1o at the start of 2024 gave way to weak La Ni\u00f1a conditions in 2025.",
+        "predicted_label": "supported",
+        "correct_label": false
+      },
+      {
+        "id": "R2-C061",
+        "gold_label": "ambiguous",
+        "target_claim": "Hurricane Melissa had winds of 298 km/h, the most intense landfall on record",
+        "matched": true,
+        "similarity": 0.868,
+        "matched_text": "Hurricane Melissa, which made landfall in western Jamaica on 28 October with maximum sustained winds of 298 km/h, the most intense landfall on record.",
+        "predicted_label": "contradicted",
+        "correct_label": false
+      }
+    ],
+    "total_planted": 7,
+    "detected_count": 6,
+    "correct_label_count": 2
+  }
+}
