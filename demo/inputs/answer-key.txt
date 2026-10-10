@@ -1,0 +1,17 @@
+Expected Verdicts:
+
+1. Correct Claims (Supported):
+- "affiliated to the University of Mumbai" -> supported
+- "Computer Engineering programme has an intake of 180 students" -> supported
+
+2. Wrong Number (Contradicted):
+- "fee for the Open category is ₹2,50,000" -> contradicted (should find actual fee is ₹2,15,000) -> error_type: hallucinated_fact
+
+3. Invented Detail (Unsupported):
+- "won the 'National Best Engineering Institute Award 2025' from the AICTE" -> unsupported (not mentioned in text) -> error_type: hallucinated_fact or unsupported_claim
+
+4. Bad Conclusion (Reasoning - Logic Gap):
+- "every single student who joins the college is guaranteed a job upon graduation" -> logic_gap (text only says "almost all eligible students")
+
+5. Risky Suggestion (Reasoning - Unsafe Advice):
+- "you can skip paying the fee instalment and pay later without penalty" -> unsafe_advice (financial/admission risk)
