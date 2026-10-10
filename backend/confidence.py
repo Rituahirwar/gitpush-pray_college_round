@@ -4,14 +4,18 @@ def compute_confidence(claim_dict: dict) -> str:
     quote_found = checks.get("quote_found", False)
     numbers_match = checks.get("numbers_match", True)
     label = claim_dict.get("label")
+    diagnosis = claim_dict.get("diagnosis")
     
-    if not passes_agree or not quote_found:
+    if not passes_agree:
+        return "low"
+        
+    if diagnosis == "evidence_not_verified":
         return "low"
         
     if label in ["unsupported", "ambiguous"]:
         return "medium"
         
-    if passes_agree and quote_found and numbers_match:
+    if quote_found and numbers_match:
         return "high"
         
     return "medium"

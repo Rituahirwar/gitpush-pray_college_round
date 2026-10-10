@@ -75,20 +75,20 @@ def test_run_validators():
 
 # --- Confidence Tests ---
 def test_compute_confidence():
-    # High
+    # clean supported -> high
     c1 = {"label": "supported", "checks": {"passes_agree": True, "quote_found": True, "numbers_match": True}}
     assert compute_confidence(c1) == "high"
     
-    # Low (passes disagree)
+    # passes disagree -> low
     c2 = {"label": "supported", "checks": {"passes_agree": False, "quote_found": True, "numbers_match": True}}
     assert compute_confidence(c2) == "low"
     
-    # Low (no quote)
-    c3 = {"label": "unsupported", "checks": {"passes_agree": True, "quote_found": False, "numbers_match": True}}
+    # fake quote downgraded -> low
+    c3 = {"label": "unsupported", "diagnosis": "evidence_not_verified", "checks": {"passes_agree": True, "quote_found": False, "numbers_match": True}}
     assert compute_confidence(c3) == "low"
 
-    # Medium (ambiguous but agreed)
-    c4 = {"label": "ambiguous", "checks": {"passes_agree": True, "quote_found": True, "numbers_match": True}}
+    # unsupported with agreeing passes -> medium
+    c4 = {"label": "unsupported", "checks": {"passes_agree": True, "quote_found": False, "numbers_match": True}}
     assert compute_confidence(c4) == "medium"
 
 # --- Reasoning Tests ---
