@@ -351,7 +351,7 @@ export default function AuditWorkspace() {
   useEffect(() => {
     let cancelled = false
 
-    fetch('/mock-audit.json')
+    fetch('http://localhost:8000/api/demo/fr-crce-v2')
       .then((response) => {
         if (!response.ok) throw new Error(`Could not load mock audit (${response.status}).`)
         return response.json()
