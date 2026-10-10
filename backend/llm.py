@@ -8,12 +8,7 @@ from google.genai.errors import APIError
 
 load_dotenv()
 
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
-if not GEMINI_API_KEY:
-    GEMINI_API_KEY = "dummy_key_for_tests"
 GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
-
-client = genai.Client(api_key=GEMINI_API_KEY)
 
 def strip_code_fences(text: str) -> str:
     text = text.strip()
@@ -26,6 +21,12 @@ def strip_code_fences(text: str) -> str:
     return text.strip()
 
 def call_json(system_prompt: str, user_content: str, schema: dict = None) -> dict:
+    api_key = os.getenv("GEMINI_API_KEY")
+    if not api_key:
+        raise ValueError("GEMINI_API_KEY is missing. Set it in backend/.env")
+        
+    client = genai.Client(api_key=api_key)
+
     config_kwargs = {
         "system_instruction": system_prompt,
         "response_mime_type": "application/json",
