@@ -58,6 +58,9 @@ def verify_second_pass(claims_with_chunks: list, first_pass_results: list) -> li
     if not to_verify:
         for fp in first_pass_results:
             fp["needs_review"] = False
+            if "checks" not in fp:
+                fp["checks"] = {}
+            fp["checks"]["passes_agree"] = True
         return first_pass_results
         
     system_prompt = (
@@ -75,14 +78,16 @@ def verify_second_pass(claims_with_chunks: list, first_pass_results: list) -> li
     final_results = []
     for fp in first_pass_results:
         cid = fp["id"]
+        if "checks" not in fp:
+            fp["checks"] = {}
         if cid in sp_dict:
             sp = sp_dict[cid]
-            if fp["label"] != sp["label"]:
-                fp["needs_review"] = True
-            else:
-                fp["needs_review"] = False
+            agrees = (fp["label"] == sp["label"])
+            fp["needs_review"] = not agrees
+            fp["checks"]["passes_agree"] = agrees
         else:
             fp["needs_review"] = False
+            fp["checks"]["passes_agree"] = True
         final_results.append(fp)
         
     return final_results
