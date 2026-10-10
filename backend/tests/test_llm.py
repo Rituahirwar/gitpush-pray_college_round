@@ -29,7 +29,7 @@ def test_call_json_success(mock_client_class):
     mock_response.text = '{"status": "ok"}'
     mock_instance.models.generate_content.return_value = mock_response
     
-    with patch.dict('os.environ', {'GEMINI_API_KEY': 'dummy', 'GEMINI_MODEL': 'gemini-3.5-flash-lite'}):
+    with patch.dict('os.environ', {'GEMINI_API_KEY': 'dummy', 'GEMINI_MODEL': 'gemini-3.5-flash-lite', 'LLM_CACHE': '0'}):
         result = call_json("Sys", "User")
         
     assert result == {"status": "ok"}
@@ -42,7 +42,7 @@ def test_call_json_invalid_json(mock_client_class):
     mock_response.text = 'not json'
     mock_instance.models.generate_content.return_value = mock_response
     
-    with patch.dict('os.environ', {'GEMINI_API_KEY': 'dummy', 'GEMINI_MODEL': 'gemini-3.5-flash-lite'}):
+    with patch.dict('os.environ', {'GEMINI_API_KEY': 'dummy', 'GEMINI_MODEL': 'gemini-3.5-flash-lite', 'LLM_CACHE': '0'}):
         with pytest.raises(ValueError, match="Invalid JSON returned by the model"):
             call_json("Sys", "User")
 
@@ -58,7 +58,7 @@ def test_call_json_retry_on_429(mock_client_class, mock_sleep):
     # Fail twice, succeed on third
     mock_instance.models.generate_content.side_effect = [mock_error, mock_error, mock_response]
     
-    with patch.dict('os.environ', {'GEMINI_API_KEY': 'dummy', 'GEMINI_MODEL': 'gemini-3.5-flash-lite'}):
+    with patch.dict('os.environ', {'GEMINI_API_KEY': 'dummy', 'GEMINI_MODEL': 'gemini-3.5-flash-lite', 'LLM_CACHE': '0'}):
         result = call_json("Sys", "User")
         
     assert result == {"status": "recovered"}
@@ -74,7 +74,7 @@ def test_call_json_429_per_day_fails_fast(mock_client_class, mock_sleep):
     mock_instance = mock_client_class.return_value
     mock_instance.models.generate_content.side_effect = mock_error
     
-    with patch.dict('os.environ', {'GEMINI_API_KEY': 'dummy', 'GEMINI_MODEL': 'gemini-3.5-flash-lite'}):
+    with patch.dict('os.environ', {'GEMINI_API_KEY': 'dummy', 'GEMINI_MODEL': 'gemini-3.5-flash-lite', 'LLM_CACHE': '0'}):
         with pytest.raises(RuntimeError, match="Daily quota exhausted for model 'gemini-3.5-flash-lite'"):
             call_json("Sys", "User")
             
@@ -88,7 +88,7 @@ def test_call_json_max_retries_exceeded(mock_client_class, mock_sleep):
     mock_instance = mock_client_class.return_value
     mock_instance.models.generate_content.side_effect = mock_error
     
-    with patch.dict('os.environ', {'GEMINI_API_KEY': 'dummy', 'GEMINI_MODEL': 'gemini-3.5-flash-lite'}):
+    with patch.dict('os.environ', {'GEMINI_API_KEY': 'dummy', 'GEMINI_MODEL': 'gemini-3.5-flash-lite', 'LLM_CACHE': '0'}):
         with pytest.raises(APIError):
             call_json("Sys", "User")
         
