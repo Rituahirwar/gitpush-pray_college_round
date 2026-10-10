@@ -1,0 +1,30 @@
+.confidence-meter {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.confidence-meter__segments {
+  display: inline-flex;
+  gap: 3px;
+  align-items: center;
+}
+
+.confidence-meter__seg {
+  width: 12px;
+  height: 4px;
+  background-color: var(--line);
+  border-radius: 1px;
+  transition: background-color 150ms ease;
+}
+
+.confidence-meter__seg.is-filled {
+  background-color: var(--text-bright);
+}
+
+.confidence-meter__word {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+  font-weight: 500;
+}
