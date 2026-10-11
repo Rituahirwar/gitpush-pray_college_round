@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Sun, Moon } from 'lucide-react'
 import { useAudit } from '../context/AuditContext'
 import './Navbar.css'
 
 export default function Navbar() {
   const location = useLocation()
   const navigate = useNavigate()
-  const { backendConnected, loadSample } = useAudit()
+  const { backendConnected, loadSample, theme, toggleTheme } = useAudit()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [loadingSample, setLoadingSample] = useState(false)
 
@@ -38,7 +39,7 @@ export default function Navbar() {
             </svg>
           </span>
           <span className="navbar__wordmark font-serif">Second Opinion</span>
-          <span className="navbar__version-chip mono-chip">AUDITOR v1.0</span>
+          <span className="navbar__version-chip mono-chip">AUDITOR V1.8</span>
         </Link>
       </div>
 
@@ -69,11 +70,33 @@ export default function Navbar() {
       <div className="navbar__right">
         <button
           type="button"
-          className="btn-ghost btn-load-sample"
+          className="btn-ghost btn-load-sample font-sans"
           onClick={handleLoadSampleClick}
           disabled={loadingSample}
         >
           {loadingSample ? 'Loading...' : 'Load sample'}
+        </button>
+
+        {/* Compact Sun/Moon Theme Toggle */}
+        <button
+          type="button"
+          className="theme-toggle-btn"
+          onClick={toggleTheme}
+          aria-label={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
+          title={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
+        >
+          <span
+            className={`theme-toggle-segment ${theme === 'light' ? 'is-active' : ''}`}
+            aria-hidden="true"
+          >
+            <Sun size={13} strokeWidth={2} />
+          </span>
+          <span
+            className={`theme-toggle-segment ${theme === 'dark' ? 'is-active' : ''}`}
+            aria-hidden="true"
+          >
+            <Moon size={13} strokeWidth={2} />
+          </span>
         </button>
 
         <div

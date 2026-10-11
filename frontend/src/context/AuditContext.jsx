@@ -30,6 +30,30 @@ export function AuditProvider({ children }) {
     }
   })
 
+  const [theme, setTheme] = useState(() => {
+    try {
+      const saved = localStorage.getItem('so.theme')
+      if (saved === 'dark' || saved === 'light') return saved
+    } catch {
+      // ignore
+    }
+    return 'light'
+  })
+
+  // Sync theme with data-theme attribute and localStorage
+  useEffect(() => {
+    try {
+      document.documentElement.setAttribute('data-theme', theme)
+      localStorage.setItem('so.theme', theme)
+    } catch {
+      // ignore
+    }
+  }, [theme])
+
+  const toggleTheme = useCallback(() => {
+    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'))
+  }, [])
+
   const [backendConnected, setBackendConnected] = useState(false)
 
   // Persist state to sessionStorage
@@ -125,6 +149,9 @@ export function AuditProvider({ children }) {
     pdfName,
     backendConnected,
     apiBaseUrl: API_BASE_URL,
+    theme,
+    setTheme,
+    toggleTheme,
     setAuditResult,
     loadSample,
     clearAudit,
@@ -144,4 +171,16 @@ export function useAudit() {
     throw new Error('useAudit must be used within an AuditProvider')
   }
   return context
+}
+
+export function useTheme() {
+  const context = useContext(AuditContext)
+  if (!context) {
+    throw new Error('useTheme must be used within an AuditProvider')
+  }
+  return {
+    theme: context.theme,
+    setTheme: context.setTheme,
+    toggleTheme: context.toggleTheme,
+  }
 }

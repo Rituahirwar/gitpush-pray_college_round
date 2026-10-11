@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { Download, Printer } from 'lucide-react'
 import { useAudit } from '../context/AuditContext'
 import VerdictMark from '../components/VerdictMark'
 import './ReportView.css'
@@ -90,44 +91,46 @@ export default function ReportView() {
           <div className="report-header__actions no-print">
             <button
               type="button"
-              className="btn-ghost font-mono btn-action"
+              className="btn-ghost font-mono btn-action btn-download"
               onClick={handleDownloadJson}
             >
-              Download JSON
+              <Download size={13} aria-hidden="true" />
+              <span>Download JSON</span>
             </button>
             <button
               type="button"
-              className="btn-primary font-mono btn-action btn-print"
+              className="btn-ghost font-mono btn-action btn-print"
               onClick={handlePrint}
             >
-              Print
+              <Printer size={13} aria-hidden="true" />
+              <span>Print</span>
             </button>
           </div>
         </header>
 
         {/* Counts Row with Symbols */}
         <section className="report-counts-bar font-mono" aria-label="Audit summary counts">
-          <div className="counts-item">
+          <div className="counts-item counts-item--supported">
             <span className="count-symbol font-mono">✓</span>
             <span className="count-label">SUPPORTED</span>
             <span className="count-value">{counts.supported || 0}</span>
           </div>
-          <div className="counts-item">
+          <div className="counts-item counts-item--contradicted">
             <span className="count-symbol font-mono">✕</span>
             <span className="count-label">CONTRADICTED</span>
             <span className="count-value">{counts.contradicted || 0}</span>
           </div>
-          <div className="counts-item">
-            <span className="count-symbol font-mono">∅</span>
+          <div className="counts-item counts-item--unsupported">
+            <span className="count-symbol font-mono">⊘</span>
             <span className="count-label">UNSUPPORTED</span>
             <span className="count-value">{counts.unsupported || 0}</span>
           </div>
-          <div className="counts-item">
-            <span className="count-symbol font-mono">≈</span>
+          <div className="counts-item counts-item--ambiguous">
+            <span className="count-symbol font-mono">●</span>
             <span className="count-label">AMBIGUOUS</span>
             <span className="count-value">{counts.ambiguous || 0}</span>
           </div>
-          <div className="counts-item counts-flag">
+          <div className="counts-item counts-item--review counts-flag">
             <span className="count-label">NEEDS REVIEW</span>
             <span className="count-value">{needsReviewCount}</span>
           </div>

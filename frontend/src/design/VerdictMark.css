@@ -9,41 +9,69 @@
   line-height: 1;
 }
 
-.verdict-glyph--contradicted {
-  color: var(--white);
-}
+.verdict-glyph--supported { color: var(--verdict-supported-text); }
+.verdict-glyph--contradicted { color: var(--verdict-contradicted-text); }
+.verdict-glyph--unsupported { color: var(--verdict-unsupported-text); }
+.verdict-glyph--ambiguous { color: var(--verdict-ambiguous-text); }
 
-/* Badge mode: glyph + label */
+/* Badge mode: glyph + label with tactile depth */
 .verdict-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.35rem;
   padding: 0.2rem 0.55rem;
-  border: 1px solid var(--line-strong);
-  background: var(--surface-subtle);
+  border: 1px solid var(--line);
+  background: var(--panel-2);
+  border-radius: 4px;
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  font-weight: 500;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--text);
   line-height: 1.2;
+  box-shadow: var(--tag-shadow);
+  transition: all 120ms ease;
 }
 
 .verdict-badge__glyph {
   font-weight: 700;
 }
 
-.verdict-badge--contradicted {
-  background: var(--white);
-  color: var(--black);
-  border-color: var(--white);
-  font-weight: 700;
+.verdict-badge--supported {
+  background-color: var(--verdict-supported-bg);
+  color: var(--verdict-supported-text);
+  border-color: var(--verdict-supported-border);
 }
 
-.verdict-badge--logic_gap,
+.verdict-badge--contradicted {
+  background-color: var(--verdict-contradicted-bg);
+  color: var(--verdict-contradicted-text);
+  border-color: var(--verdict-contradicted-border);
+}
+
+.verdict-badge--unsupported {
+  background-color: var(--verdict-unsupported-bg);
+  color: var(--verdict-unsupported-text);
+  border-color: var(--verdict-unsupported-border);
+}
+
+.verdict-badge--ambiguous {
+  background-color: var(--verdict-ambiguous-bg);
+  color: var(--verdict-ambiguous-text);
+  border-color: var(--verdict-ambiguous-border);
+}
+
+.verdict-badge--logic_gap {
+  background-color: var(--verdict-logic-bg);
+  color: var(--verdict-logic-text);
+  border-color: var(--verdict-logic-border);
+}
+
 .verdict-badge--unsafe_advice {
-  border-style: dashed;
+  background-color: var(--verdict-unsafe-bg);
+  color: var(--verdict-unsafe-text);
+  border-color: var(--verdict-unsafe-border);
 }
 
 /* Inline manuscript markup */
@@ -52,7 +80,7 @@
   color: inherit;
   padding: 0 0.1rem;
   cursor: pointer;
-  transition: background-color var(--transition-fast);
+  transition: background-color var(--transition-fast, 120ms ease);
 }
 
 .verdict-inline:focus-visible {
@@ -60,35 +88,39 @@
   outline-offset: var(--focus-offset);
 }
 
-/* 1. supported: thin solid underline */
+/* 1. supported: soft sage tint */
 .mark-supported {
-  text-decoration: underline solid var(--text) 1.5px;
-  text-underline-offset: 4px;
+  background-color: var(--verdict-supported-bg);
+  color: var(--verdict-supported-text);
+  padding: 0.05rem 0.25rem;
+  border-radius: 3px;
 }
 
-/* 2. contradicted: inverted highlight (light background, dark text) */
+/* 2. contradicted: muted dusty rose */
 .mark-contradicted {
-  background-color: var(--text);
-  color: var(--black);
+  background-color: var(--verdict-contradicted-bg);
+  color: var(--verdict-contradicted-text);
+  border: 1px solid var(--verdict-contradicted-border);
   padding: 0.05rem 0.25rem;
   font-weight: 600;
+  border-radius: 3px;
 }
 
 /* 3. unsupported: dashed underline */
 .mark-insufficient {
-  text-decoration: underline dashed var(--muted) 1.5px;
+  text-decoration: underline dashed var(--verdict-unsupported-text) 1.5px;
   text-underline-offset: 4px;
 }
 
 /* 4. ambiguous: wavy underline */
 .mark-ambiguous {
-  text-decoration: underline wavy var(--text) 1.5px;
+  text-decoration: underline wavy var(--verdict-ambiguous-text) 1.5px;
   text-underline-offset: 4px;
 }
 
 /* 5. logic_gap: double underline */
 .mark-logic-gap {
-  text-decoration: underline double var(--text) 2px;
+  text-decoration: underline double var(--text-bright) 2px;
   text-underline-offset: 4px;
 }
 
@@ -96,7 +128,7 @@
 .mark-unsafe-advice .mark-bracket {
   font-family: var(--font-mono);
   font-weight: 700;
-  color: var(--text);
+  color: var(--verdict-unsafe-text);
   margin: 0 0.15rem;
 }
 
@@ -108,19 +140,14 @@
   vertical-align: super;
   margin-left: 0.2rem;
   padding: 0.05rem 0.25rem;
-  background-color: var(--surface-raised);
+  background-color: var(--panel-2);
   border: 1px solid var(--line);
   color: var(--text);
-}
-
-.mark-contradicted .verdict-footnote {
-  background-color: var(--black);
-  color: var(--white);
-  border-color: var(--black);
+  border-radius: 2px;
 }
 
 /* Selected state in manuscript */
 .verdict-inline--selected {
-  outline: 1px solid var(--text);
+  outline: 1px solid var(--text-bright);
   outline-offset: 2px;
 }
