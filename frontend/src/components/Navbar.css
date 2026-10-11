@@ -9,6 +9,7 @@
   position: sticky;
   top: 0;
   z-index: 100;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .navbar__left {
@@ -37,12 +38,12 @@
 }
 
 .navbar__version-chip {
-  padding: 2px 6px;
+  padding: 2px 7px;
   border: 1px solid var(--line);
-  background-color: var(--panel);
+  background-color: var(--panel-2);
   color: var(--text-dim);
   font-size: 10px;
-  border-radius: var(--radius);
+  border-radius: 4px;
 }
 
 /* Centre Links */
@@ -69,29 +70,82 @@
 
 .nav-link.is-active {
   color: var(--text-bright);
+  font-weight: 500;
 }
 
-/* Thin white underline for active link */
+/* Indicator for active nav link */
 .nav-link.is-active::after {
   content: '';
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 1px;
+  height: 2px;
   background-color: var(--text-bright);
+  border-radius: 1px;
 }
 
 /* Right Section */
 .navbar__right {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
 }
 
 .btn-load-sample {
   font-size: 12px;
   padding: 5px 12px;
+  background-color: var(--panel);
+  border: 1px solid var(--line);
+  color: var(--text);
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.btn-load-sample:hover:not(:disabled) {
+  background-color: var(--panel-2);
+  border-color: var(--line-strong);
+  color: var(--text-bright);
+}
+
+/* Compact Theme Toggle Button */
+.theme-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 2px;
+  gap: 2px;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  transition: all 150ms ease;
+}
+
+.theme-toggle-btn:hover {
+  border-color: var(--line-strong);
+}
+
+.theme-toggle-btn:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
+
+.theme-toggle-segment {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  color: var(--text-dim);
+  transition: all 150ms ease;
+}
+
+.theme-toggle-segment.is-active {
+  background-color: var(--panel);
+  color: var(--text-bright);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
 }
 
 .status-chip {
@@ -115,7 +169,7 @@
 
 .status-chip.is-online .status-dot {
   background-color: var(--dot-supported);
-  box-shadow: 0 0 4px rgba(111, 168, 139, 0.4);
+  box-shadow: 0 0 4px rgba(49, 94, 64, 0.35);
 }
 
 .status-chip.is-offline .status-dot {

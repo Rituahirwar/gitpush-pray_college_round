@@ -56,24 +56,26 @@
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  background: transparent;
-  border: 1px solid transparent;
+  background: var(--panel);
+  border: 1px solid var(--line);
   color: var(--text-dim);
   font: inherit;
-  padding: 3px 7px;
-  border-radius: var(--radius);
+  padding: 3px 8px;
+  border-radius: 4px;
   cursor: pointer;
   transition: all 120ms ease;
+  box-shadow: var(--tag-shadow);
 }
 
 .stat-filter-btn:hover {
   background: var(--panel-2);
   color: var(--text);
+  border-color: var(--line-strong);
 }
 
 .stat-filter-btn.is-active {
   background: var(--panel-2);
-  border-color: var(--line);
+  border-color: var(--line-strong);
   color: var(--text-bright);
 }
 

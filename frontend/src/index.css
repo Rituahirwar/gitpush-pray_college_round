@@ -8,7 +8,6 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color-scheme: dark;
 }
 
 * {
@@ -19,6 +18,7 @@ html {
   min-width: 320px;
   min-height: 100%;
   background-color: var(--bg);
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 body {
@@ -27,6 +27,7 @@ body {
   margin: 0;
   background-color: var(--bg);
   color: var(--text);
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 button,
@@ -41,12 +42,13 @@ button {
 }
 
 ::selection {
-  color: #0B0B0C;
+  color: var(--bg);
   background: var(--text-bright);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
+  html, body {
     scroll-behavior: auto;
+    transition: none !important;
   }
 }

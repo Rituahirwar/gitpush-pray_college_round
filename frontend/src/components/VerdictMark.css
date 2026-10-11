@@ -3,7 +3,7 @@
   display: inline;
   background: transparent;
   border: none;
-  padding: 0 1px;
+  padding: 0 2px;
   margin: 0;
   font: inherit;
   color: inherit;
@@ -24,32 +24,37 @@
   outline-offset: 2px;
 }
 
-/* 1. supported: soft light-grey fill behind the words */
+/* 1. supported: soft sage tint */
 .mark-supported {
-  background-color: rgba(214, 214, 216, 0.14);
+  background-color: var(--verdict-supported-bg);
+  color: var(--verdict-supported-text);
+  padding: 1px 4px;
+  border-radius: 3px;
 }
 
-/* 2. contradicted: inverted block (near-white background, black text) */
+/* 2. contradicted: muted dusty rose tint with border */
 .mark-contradicted {
-  background-color: #ECECED;
-  color: #0B0B0C !important;
-  padding: 1px 3px;
+  background-color: var(--verdict-contradicted-bg);
+  color: var(--verdict-contradicted-text);
+  border: 1px solid var(--verdict-contradicted-border);
+  padding: 1px 4px;
   font-weight: 500;
+  border-radius: 3px;
 }
 
 .mark-contradicted .mark-index {
-  color: #0B0B0C !important;
+  color: var(--verdict-contradicted-text);
 }
 
 /* 3. unsupported: dashed underline */
 .mark-unsupported {
-  text-decoration: underline dashed rgba(214, 214, 216, 0.65) 1.5px;
+  text-decoration: underline dashed var(--verdict-unsupported-text) 1.5px;
   text-underline-offset: 4px;
 }
 
 /* 4. ambiguous: wavy underline */
 .mark-ambiguous {
-  text-decoration: underline wavy rgba(124, 147, 176, 0.75) 1.5px;
+  text-decoration: underline wavy var(--verdict-ambiguous-text) 1.5px;
   text-underline-offset: 4px;
 }
 
@@ -61,9 +66,11 @@
 
 /* 6. unsafe_advice: dotted outline box and small mono tag UNSAFE */
 .mark-unsafe {
-  border: 1px dotted var(--dot-contradicted);
+  border: 1px dotted var(--verdict-contradicted-border);
   padding: 1px 3px;
-  background-color: rgba(196, 107, 107, 0.08);
+  background-color: var(--verdict-unsafe-bg);
+  color: var(--verdict-unsafe-text);
+  border-radius: 3px;
 }
 
 /* Tags & Indicators */
@@ -82,17 +89,19 @@
 }
 
 .review-flag {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   font-size: 9px;
   font-weight: 700;
-  letter-spacing: 0.08em;
-  background: rgba(201, 165, 92, 0.15);
-  border: 1px solid var(--dot-unsupported);
-  color: var(--dot-unsupported);
-  padding: 0 4px;
-  margin-left: 4px;
-  border-radius: var(--radius);
+  letter-spacing: 0.06em;
+  background-color: var(--verdict-review-bg);
+  border: 1px solid var(--verdict-review-border);
+  color: var(--verdict-review-text);
+  padding: 1px 5px;
+  margin-left: 5px;
+  border-radius: 3px;
   vertical-align: middle;
+  box-shadow: var(--tag-shadow);
 }
 
 .mark-index {
@@ -102,29 +111,126 @@
   font-weight: 500;
 }
 
-/* Badge Mode */
+/* ========================================================= */
+/* Badge Mode: Tactile, Muted Verdict Tags With Depth        */
+/* ========================================================= */
 .verdict-badge {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  font-size: 13px;
-  color: var(--text-bright);
+  gap: 5px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+  border: 1px solid transparent;
+  box-shadow: var(--tag-shadow);
+  transition: all 120ms ease;
+  white-space: nowrap;
+}
+
+/* Supported: Sage green */
+.verdict-badge--supported {
+  background-color: var(--verdict-supported-bg);
+  color: var(--verdict-supported-text);
+  border-color: var(--verdict-supported-border);
+}
+.verdict-badge--supported .verdict-dot {
+  background-color: var(--verdict-supported-dot);
+}
+
+/* Contradicted: Dusty rose */
+.verdict-badge--contradicted {
+  background-color: var(--verdict-contradicted-bg);
+  color: var(--verdict-contradicted-text);
+  border-color: var(--verdict-contradicted-border);
+}
+.verdict-badge--contradicted .verdict-dot {
+  background-color: var(--verdict-contradicted-dot);
+}
+
+/* Unsupported: Warm stone grey */
+.verdict-badge--unsupported {
+  background-color: var(--verdict-unsupported-bg);
+  color: var(--verdict-unsupported-text);
+  border-color: var(--verdict-unsupported-border);
+}
+.verdict-badge--unsupported .verdict-dot {
+  background-color: var(--verdict-unsupported-dot);
+}
+
+/* Ambiguous: Muted golden cream */
+.verdict-badge--ambiguous {
+  background-color: var(--verdict-ambiguous-bg);
+  color: var(--verdict-ambiguous-text);
+  border-color: var(--verdict-ambiguous-border);
+}
+.verdict-badge--ambiguous .verdict-dot {
+  background-color: var(--verdict-ambiguous-dot);
+}
+
+/* Needs Review / Flagged: Stronger pale amber */
+.verdict-badge--review,
+.verdict-badge--needs_review {
+  background-color: var(--verdict-review-bg);
+  color: var(--verdict-review-text);
+  border-color: var(--verdict-review-border);
+}
+.verdict-badge--review .verdict-dot,
+.verdict-badge--needs_review .verdict-dot {
+  background-color: var(--verdict-review-dot);
+}
+
+/* Logic Gap */
+.verdict-badge--logic_gap {
+  background-color: var(--verdict-logic-bg);
+  color: var(--verdict-logic-text);
+  border-color: var(--verdict-logic-border);
+}
+.verdict-badge--logic_gap .verdict-dot {
+  background-color: var(--verdict-logic-text);
+}
+
+/* Unsafe Advice */
+.verdict-badge--unsafe_advice {
+  background-color: var(--verdict-unsafe-bg);
+  color: var(--verdict-unsafe-text);
+  border-color: var(--verdict-unsafe-border);
+}
+.verdict-badge--unsafe_advice .verdict-dot {
+  background-color: var(--verdict-unsafe-text);
 }
 
 .verdict-dot {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
   flex-shrink: 0;
+  display: inline-block;
+  opacity: 0.9;
 }
 
 .verdict-symbol {
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
 }
 
 .verdict-label {
-  font-size: 12px;
-  letter-spacing: 0.06em;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
 }
+
+/* Glyph Mode */
+.verdict-glyph {
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 1;
+}
+.verdict-glyph--supported { color: var(--verdict-supported-text); }
+.verdict-glyph--contradicted { color: var(--verdict-contradicted-text); }
+.verdict-glyph--unsupported { color: var(--verdict-unsupported-text); }
+.verdict-glyph--ambiguous { color: var(--verdict-ambiguous-text); }
